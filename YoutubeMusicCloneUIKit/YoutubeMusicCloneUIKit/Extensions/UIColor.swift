@@ -13,6 +13,6 @@ extension UIColor{
 
 struct ColorTheme{
     let tabBarBackgroundColor = UIColor(named: "TabBarBackgroundColor")
-
+    let appBackgroundColor = UIColor(named: "AppBackgroundColor")
 }
 

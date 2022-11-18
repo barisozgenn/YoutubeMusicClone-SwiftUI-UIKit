@@ -18,6 +18,11 @@
 		AF4ECC07292790AA00F70024 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC06292790AA00F70024 /* ProfileViewController.swift */; };
 		AF4ECC092927913300F70024 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC082927913300F70024 /* SearchViewController.swift */; };
 		AF4ECC0B2927A50B00F70024 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC0A2927A50B00F70024 /* UIColor.swift */; };
+		AF4ECC0D2927C60B00F70024 /* MusicCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC0C2927C60B00F70024 /* MusicCollectionViewController.swift */; };
+		AF4ECC0F2927D06D00F70024 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC0E2927D06D00F70024 /* UIView.swift */; };
+		AF4ECC112927D80B00F70024 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC102927D80B00F70024 /* MusicCell.swift */; };
+		AF4ECC132927F9C400F70024 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC122927F9C400F70024 /* UIViewController.swift */; };
+		AF4ECC152927FA0300F70024 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC142927FA0300F70024 /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		AF4ECC06292790AA00F70024 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AF4ECC082927913300F70024 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AF4ECC0A2927A50B00F70024 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		AF4ECC0C2927C60B00F70024 /* MusicCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCollectionViewController.swift; sourceTree = "<group>"; };
+		AF4ECC0E2927D06D00F70024 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		AF4ECC102927D80B00F70024 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
+		AF4ECC122927F9C400F70024 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		AF4ECC142927FA0300F70024 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +104,7 @@
 				AF4ECC042927909E00F70024 /* LibraryViewController.swift */,
 				AF4ECC06292790AA00F70024 /* ProfileViewController.swift */,
 				AF4ECC082927913300F70024 /* SearchViewController.swift */,
+				AF4ECC0C2927C60B00F70024 /* MusicCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -108,6 +119,7 @@
 		AF4ECBF929278E6D00F70024 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AF4ECC102927D80B00F70024 /* MusicCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -123,6 +135,9 @@
 			isa = PBXGroup;
 			children = (
 				AF4ECC0A2927A50B00F70024 /* UIColor.swift */,
+				AF4ECC0E2927D06D00F70024 /* UIView.swift */,
+				AF4ECC122927F9C400F70024 /* UIViewController.swift */,
+				AF4ECC142927FA0300F70024 /* UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -218,13 +233,18 @@
 			files = (
 				AF4ECBE329278E4A00F70024 /* AppDelegate.swift in Sources */,
 				AF4ECBFE29278EDB00F70024 /* MainTabBarController.swift in Sources */,
+				AF4ECC0F2927D06D00F70024 /* UIView.swift in Sources */,
+				AF4ECC0D2927C60B00F70024 /* MusicCollectionViewController.swift in Sources */,
 				AF4ECC092927913300F70024 /* SearchViewController.swift in Sources */,
 				AF4ECC032927908E00F70024 /* ExploreViewController.swift in Sources */,
 				AF4ECBE529278E4B00F70024 /* SceneDelegate.swift in Sources */,
+				AF4ECC132927F9C400F70024 /* UIViewController.swift in Sources */,
 				AF4ECC07292790AA00F70024 /* ProfileViewController.swift in Sources */,
 				AF4ECC052927909E00F70024 /* LibraryViewController.swift in Sources */,
 				AF4ECC012927908100F70024 /* HomeViewController.swift in Sources */,
+				AF4ECC152927FA0300F70024 /* UIButton.swift in Sources */,
 				AF4ECC0B2927A50B00F70024 /* UIColor.swift in Sources */,
+				AF4ECC112927D80B00F70024 /* MusicCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +387,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YoutubeMusicCloneUIKit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -393,7 +415,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YoutubeMusicCloneUIKit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

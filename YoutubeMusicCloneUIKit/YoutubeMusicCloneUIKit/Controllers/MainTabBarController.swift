@@ -26,7 +26,11 @@ class MainTabBarController: UITabBarController {
         let explore = templateNavigationController(title: "Explore", image: "safari", rootViewController: ExploreViewController())
         let library = templateNavigationController(title: "Library", image: "tray.full", rootViewController: LibraryViewController())
         
-        viewControllers = [home, explore, library]
+        let layout = UICollectionViewFlowLayout()
+        let quickPickMusicCollectionView = templateNavigationController(title: "list", image: "flame", rootViewController: MusicCollectionViewController(collectionViewLayout: layout))
+        
+        
+        viewControllers = [home, explore, library, quickPickMusicCollectionView]
         
         tabBar.backgroundColor = UIColor.theme.tabBarBackgroundColor
         tabBar.barTintColor = .white // unselected

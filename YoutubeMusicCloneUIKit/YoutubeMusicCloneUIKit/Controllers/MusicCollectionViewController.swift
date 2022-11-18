@@ -21,7 +21,7 @@ class MusicCollectionViewController: UICollectionViewController {
     //MARK: - Helpers
     
     func setupUI(){
-        collectionView.backgroundColor = .purple
+        collectionView.backgroundColor = .clear
         self.collectionView!.register(MusicCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
     }

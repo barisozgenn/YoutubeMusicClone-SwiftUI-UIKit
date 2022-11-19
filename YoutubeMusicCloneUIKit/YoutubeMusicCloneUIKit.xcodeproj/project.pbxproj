@@ -27,6 +27,8 @@
 		AF4ECC192928BB0C00F70024 /* MusicRectCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC182928BB0C00F70024 /* MusicRectCollectionViewController.swift */; };
 		AF4ECC1B2928C50400F70024 /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC1A2928C50400F70024 /* CategoryCollectionViewController.swift */; };
 		AF4ECC1D2928C58500F70024 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC1C2928C58500F70024 /* CategoryCell.swift */; };
+		AF4ECC202929213300F70024 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC1F2929213300F70024 /* LoginController.swift */; };
+		AF4ECC222929213E00F70024 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC212929213E00F70024 /* RegisterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		AF4ECC182928BB0C00F70024 /* MusicRectCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRectCollectionViewController.swift; sourceTree = "<group>"; };
 		AF4ECC1A2928C50400F70024 /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		AF4ECC1C2928C58500F70024 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		AF4ECC1F2929213300F70024 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		AF4ECC212929213E00F70024 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 		AF4ECBF729278E5C00F70024 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF4ECC1E292920FC00F70024 /* Authentication */,
 				AF4ECBFD29278EDB00F70024 /* MainTabBarController.swift */,
 				AF4ECC002927908100F70024 /* HomeViewController.swift */,
 				AF4ECC022927908E00F70024 /* ExploreViewController.swift */,
@@ -171,6 +176,15 @@
 				AF4ECBF029278E4C00F70024 /* Info.plist */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		AF4ECC1E292920FC00F70024 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				AF4ECC1F2929213300F70024 /* LoginController.swift */,
+				AF4ECC212929213E00F70024 /* RegisterController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF4ECC222929213E00F70024 /* RegisterController.swift in Sources */,
+				AF4ECC202929213300F70024 /* LoginController.swift in Sources */,
 				AF4ECBE329278E4A00F70024 /* AppDelegate.swift in Sources */,
 				AF4ECBFE29278EDB00F70024 /* MainTabBarController.swift in Sources */,
 				AF4ECC172928BA2700F70024 /* MusicRectCell.swift in Sources */,

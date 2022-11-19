@@ -1,15 +1,16 @@
 //
-//  MusicCollectionViewController.swift
+//  MusicRectCollectionViewController.swift
 //  YoutubeMusicCloneUIKit
 //
-//  Created by Baris OZGEN on 18.11.2022.
+//  Created by Baris OZGEN on 19.11.2022.
 //
+
 
 import UIKit
 
-private let reuseIdentifier = "MusicCell"
+private let reuseIdentifier = "MusicRectCell"
 
-class MusicCollectionViewController: UICollectionViewController {
+class MusicRectCollectionViewController: UICollectionViewController {
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -22,27 +23,28 @@ class MusicCollectionViewController: UICollectionViewController {
     
     func setupUI(){
         collectionView.backgroundColor = .clear
-        self.collectionView!.register(MusicCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(MusicRectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
     }
 }
 
 //MARK: - UICollectionViewDataSource
-extension MusicCollectionViewController {
+extension MusicRectCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
   
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MusicCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MusicRectCell
        
         return cell
     }
 }
 //MARK: - UICollectionViewDelegateFlowLayout
-extension MusicCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension MusicRectCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 50, height: 80)
+        return CGSize(width: 145, height: 180)
     }
 }
+

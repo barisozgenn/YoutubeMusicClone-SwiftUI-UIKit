@@ -34,7 +34,7 @@ class MusicCell: UICollectionViewCell{
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.text = "Music title is here".capitalized
+        label.text = "Music title is here will be shown".capitalized
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.numberOfLines = 2
         return label

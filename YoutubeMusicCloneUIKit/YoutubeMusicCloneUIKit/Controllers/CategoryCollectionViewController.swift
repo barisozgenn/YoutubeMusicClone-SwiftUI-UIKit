@@ -1,5 +1,5 @@
 //
-//  MusicRectCollectionViewController.swift
+//  CategoryCollectionViewController.swift
 //  YoutubeMusicCloneUIKit
 //
 //  Created by Baris OZGEN on 19.11.2022.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-private let reuseIdentifier = "MusicRectCell"
+private let reuseIdentifier = "CategoryCell"
 
-class MusicRectCollectionViewController: UICollectionViewController {
+class CategoryCollectionViewController: UICollectionViewController {
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -21,30 +21,33 @@ class MusicRectCollectionViewController: UICollectionViewController {
     
     //MARK: - Helpers
     
+    lazy var categories = ["relax","energize","focus","workout","commute","baris","ozgen"]
     func setupUI(){
         collectionView.backgroundColor = .clear
-        self.collectionView!.register(MusicRectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
+        self.collectionView!.register(CategoryCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 }
 
 //MARK: - UICollectionViewDataSource
-extension MusicRectCollectionViewController {
+extension CategoryCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return categories.count
     }
   
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MusicRectCell
+        //let category = categories[indexPath.row]
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CategoryCell
        
+        //cell.titleLabel.text = category
+        
         return cell
     }
 }
 //MARK: - UICollectionViewDelegateFlowLayout
-extension MusicRectCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension CategoryCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 150)
+        return CGSize(width: 60, height: 35)
     }
 }
-

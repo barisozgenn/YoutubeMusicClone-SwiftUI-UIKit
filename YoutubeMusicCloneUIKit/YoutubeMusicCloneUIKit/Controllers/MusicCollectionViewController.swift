@@ -43,6 +43,6 @@ extension MusicCollectionViewController {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension MusicCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 50, height: 80)
+        return CGSize(width: view.frame.width - 50, height: 70)
     }
 }

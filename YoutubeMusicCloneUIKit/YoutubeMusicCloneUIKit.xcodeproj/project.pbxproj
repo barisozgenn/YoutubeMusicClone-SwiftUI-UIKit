@@ -25,6 +25,8 @@
 		AF4ECC152927FA0300F70024 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC142927FA0300F70024 /* UIButton.swift */; };
 		AF4ECC172928BA2700F70024 /* MusicRectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC162928BA2700F70024 /* MusicRectCell.swift */; };
 		AF4ECC192928BB0C00F70024 /* MusicRectCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC182928BB0C00F70024 /* MusicRectCollectionViewController.swift */; };
+		AF4ECC1B2928C50400F70024 /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC1A2928C50400F70024 /* CategoryCollectionViewController.swift */; };
+		AF4ECC1D2928C58500F70024 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC1C2928C58500F70024 /* CategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		AF4ECC142927FA0300F70024 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		AF4ECC162928BA2700F70024 /* MusicRectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRectCell.swift; sourceTree = "<group>"; };
 		AF4ECC182928BB0C00F70024 /* MusicRectCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRectCollectionViewController.swift; sourceTree = "<group>"; };
+		AF4ECC1A2928C50400F70024 /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
+		AF4ECC1C2928C58500F70024 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 				AF4ECC082927913300F70024 /* SearchViewController.swift */,
 				AF4ECC0C2927C60B00F70024 /* MusicCollectionViewController.swift */,
 				AF4ECC182928BB0C00F70024 /* MusicRectCollectionViewController.swift */,
+				AF4ECC1A2928C50400F70024 /* CategoryCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			children = (
 				AF4ECC102927D80B00F70024 /* MusicCell.swift */,
 				AF4ECC162928BA2700F70024 /* MusicRectCell.swift */,
+				AF4ECC1C2928C58500F70024 /* CategoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,7 +248,9 @@
 				AF4ECC172928BA2700F70024 /* MusicRectCell.swift in Sources */,
 				AF4ECC0F2927D06D00F70024 /* UIView.swift in Sources */,
 				AF4ECC0D2927C60B00F70024 /* MusicCollectionViewController.swift in Sources */,
+				AF4ECC1D2928C58500F70024 /* CategoryCell.swift in Sources */,
 				AF4ECC092927913300F70024 /* SearchViewController.swift in Sources */,
+				AF4ECC1B2928C50400F70024 /* CategoryCollectionViewController.swift in Sources */,
 				AF4ECC032927908E00F70024 /* ExploreViewController.swift in Sources */,
 				AF4ECBE529278E4B00F70024 /* SceneDelegate.swift in Sources */,
 				AF4ECC132927F9C400F70024 /* UIViewController.swift in Sources */,

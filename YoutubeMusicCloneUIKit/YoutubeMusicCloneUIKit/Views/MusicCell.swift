@@ -15,8 +15,10 @@ class MusicCell: UICollectionViewCell{
         iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
-        iv.image = UIImage(named: "youtube-music-app-clone-logo")
+        iv.image = UIImage(named: "AppIcon")
         iv.backgroundColor = .black
+        iv.layer.cornerRadius = 4
+        
         return iv
     }()
     

@@ -16,6 +16,8 @@ class MusicRectCell: UICollectionViewCell{
         iv.isUserInteractionEnabled = true
         iv.image = UIImage(named: "AppIcon")
         iv.backgroundColor = .black
+        iv.layer.cornerRadius = 4
+        
         return iv
     }()
     
@@ -40,7 +42,7 @@ class MusicRectCell: UICollectionViewCell{
                               left: leftAnchor,
                               paddingTop: 10,
                               paddingLeft: 0)
-        musicImageView.setDimensions(height: 145, width: 145)
+        musicImageView.setDimensions(height: 120, width: 120)
         //musicImageView.layer.cornerRadius = 32
         
         

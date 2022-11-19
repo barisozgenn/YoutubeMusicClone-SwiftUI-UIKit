@@ -20,17 +20,31 @@ class HomeViewController : UIViewController {
     func setupUI(){
         view.backgroundColor = UIColor.theme.appBackgroundColor
         
+        view.addSubview(gradientBackground)
+        gradientBackground.anchor(top: view.topAnchor,
+                                  left: view.leftAnchor,
+                                  right: view.rightAnchor)
+        
+        view.addSubview(categoryCollectionView.view)
+        categoryCollectionView.view.anchor(top: view.topAnchor,
+                                           left: view.leftAnchor,
+                                           paddingTop: 70,
+                                           paddingLeft: 14)
+        
+        categoryCollectionView.view.setDimensions(height: 50,
+                                                  width: view.width - 14)
+        
         view.addSubview(subtitleLabel)
-        subtitleLabel.anchor(top: view.topAnchor,
+        subtitleLabel.anchor(top: categoryCollectionView.view.bottomAnchor,
                              left: view.leftAnchor,
-                             paddingTop: 70,
+                             paddingTop: 29,
                              paddingLeft: 14)
         
         view.addSubview(titleLabel)
         titleLabel.anchor(top: subtitleLabel.bottomAnchor,
-                             left: view.leftAnchor,
-                             paddingTop: 4,
-                             paddingLeft: 14)
+                          left: view.leftAnchor,
+                          paddingTop: 4,
+                          paddingLeft: 14)
         
         view.addSubview(quickPickMusicCollectionView.view)
         quickPickMusicCollectionView.view.anchor(top: titleLabel.bottomAnchor,
@@ -38,15 +52,15 @@ class HomeViewController : UIViewController {
                                                  paddingTop: 10,
                                                  paddingLeft: 14)
         
-        quickPickMusicCollectionView.view.setDimensions(height: 330,
+        quickPickMusicCollectionView.view.setDimensions(height: 300,
                                                         width: view.width - 14)
         
         
         view.addSubview(titleListenAgainLabel)
         titleListenAgainLabel.anchor(top: quickPickMusicCollectionView.view.bottomAnchor,
-                             left: view.leftAnchor,
-                             paddingTop: 29,
-                             paddingLeft: 14)
+                                     left: view.leftAnchor,
+                                     paddingTop: 29,
+                                     paddingLeft: 14)
         titleListenAgainLabel.setDimensions(height: 35, width: view.width - 80)
         
         view.addSubview(moreButton)
@@ -57,17 +71,30 @@ class HomeViewController : UIViewController {
         
         view.addSubview(listenAgainMusicCollectionView.view)
         listenAgainMusicCollectionView.view.anchor(top: titleListenAgainLabel.bottomAnchor,
-                                                 left: view.leftAnchor,
-                                                 paddingTop: 5,
-                                                 paddingLeft: 14)
+                                                   left: view.leftAnchor,
+                                                   paddingTop: 5,
+                                                   paddingLeft: 14)
         
-        listenAgainMusicCollectionView.view.setDimensions(height: 384,
-                                                        width: view.width - 14)
+        listenAgainMusicCollectionView.view.setDimensions(height: 329,
+                                                          width: view.width - 14)
         
         
     }
     
     //MARK: - Properties
+    
+    private lazy var gradientBackground: UIView = {
+        let gradientView = UIView()
+        gradientView.setDimensions(height: 414, width: view.width)
+        
+        let gradient = CAGradientLayer()
+        gradient.frame = CGRect(x: 0, y: 0, width: view.width, height: 414)
+        gradient.colors = [UIColor.systemRed.cgColor, UIColor.clear.cgColor]
+        gradient.opacity = 0.58
+        gradientView.layer.insertSublayer(gradient, at: 0)
+        
+        return gradientView
+    }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -109,19 +136,6 @@ class HomeViewController : UIViewController {
         return label
     }()
     
-    private lazy var layoutRect: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 14
-        layout.minimumInteritemSpacing = 2
-        return layout
-    }()
-    
-    private lazy var listenAgainMusicCollectionView: MusicRectCollectionViewController = {
-        let musicCollectionView = MusicRectCollectionViewController(collectionViewLayout: layoutRect)
-        return musicCollectionView
-    }()
-    
     private lazy var moreButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(.white, for: .normal)
@@ -135,6 +149,32 @@ class HomeViewController : UIViewController {
         button.layer.cornerRadius = 14
         button.addTarget(self, action: #selector(didTapMore), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var layoutRect: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 14
+        layout.minimumInteritemSpacing = 2
+        return layout
+    }()
+    
+    private lazy var listenAgainMusicCollectionView: MusicRectCollectionViewController = {
+        let musicCollectionView = MusicRectCollectionViewController(collectionViewLayout: layoutRect)
+        return musicCollectionView
+    }()
+    
+    private lazy var layoutCategory: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 14
+        layout.minimumInteritemSpacing = 2
+        return layout
+    }()
+    
+    private lazy var categoryCollectionView: CategoryCollectionViewController = {
+        let categoryCollectionView = CategoryCollectionViewController(collectionViewLayout: layoutCategory)
+        return categoryCollectionView
     }()
     
     // MARK: - Actions

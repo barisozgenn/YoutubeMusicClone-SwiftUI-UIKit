@@ -25,16 +25,13 @@ class MainTabBarController: UITabBarController {
         let home = templateNavigationController(title: "Home", image: "music.note.house", rootViewController: HomeViewController())
         let explore = templateNavigationController(title: "Explore", image: "safari", rootViewController: ExploreViewController())
         let library = templateNavigationController(title: "Library", image: "tray.full", rootViewController: LibraryViewController())
-        
-        let layout = UICollectionViewFlowLayout()
-        let quickPickMusicCollectionView = templateNavigationController(title: "list", image: "flame", rootViewController: MusicCollectionViewController(collectionViewLayout: layout))
-        
-        
-        viewControllers = [home, explore, library, quickPickMusicCollectionView]
+
+        viewControllers = [home, explore, library]
         
         tabBar.backgroundColor = UIColor.theme.tabBarBackgroundColor
         tabBar.barTintColor = .white // unselected
         tabBar.tintColor = .white // selected
+        
     }
     
     func templateNavigationController(title: String, image: String, rootViewController: UIViewController) -> UINavigationController {
@@ -43,6 +40,7 @@ class MainTabBarController: UITabBarController {
         nav.title = title
         nav.tabBarItem.image = UIImage(systemName: image)
         nav.tabBarItem.selectedImage = UIImage(systemName: "\(image).fill")
+        nav.navigationBar.barStyle = .black
         //nav.navigationBar.tintColor = .lightGray
         //nav.navigationBar.barTintColor = .white
         return nav

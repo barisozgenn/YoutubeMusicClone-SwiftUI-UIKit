@@ -25,6 +25,7 @@ class CategoryCollectionViewController: UICollectionViewController {
     func setupUI(){
         collectionView.backgroundColor = .clear
         self.collectionView!.register(CategoryCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.showsHorizontalScrollIndicator = false
     }
 }
 
@@ -48,6 +49,7 @@ extension CategoryCollectionViewController {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension CategoryCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 60, height: 35)
+        
+        return CGSize(width: 111 + 14, height: 35)
     }
 }

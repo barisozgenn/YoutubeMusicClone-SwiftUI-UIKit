@@ -24,7 +24,7 @@ class MusicRectCollectionViewController: UICollectionViewController {
     func setupUI(){
         collectionView.backgroundColor = .clear
         self.collectionView!.register(MusicRectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
+        collectionView.showsHorizontalScrollIndicator = false
     }
 }
 

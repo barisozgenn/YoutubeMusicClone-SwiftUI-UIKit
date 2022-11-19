@@ -23,19 +23,18 @@ class CategoryCell: UICollectionViewCell{
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .darkGray.withAlphaComponent(0.29)
+        backgroundColor = .gray.withAlphaComponent(0.29)
         layer.borderWidth = 1
         layer.borderColor = CGColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.29)
-        layer.cornerRadius = 14
+        layer.cornerRadius = 10
         
         addSubview(titleLabel)
         titleLabel.anchor(top: topAnchor,
                           left: leftAnchor,
                           right: rightAnchor,
-                          paddingTop: 0,
-                          paddingLeft: 0,
-                          paddingRight: 0
-        )
+                          paddingTop: 7,
+                          paddingLeft: 7,
+                          paddingRight: 7)
         
     }
     

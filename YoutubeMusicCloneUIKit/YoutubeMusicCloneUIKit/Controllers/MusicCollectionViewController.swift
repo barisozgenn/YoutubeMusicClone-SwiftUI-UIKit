@@ -23,7 +23,8 @@ class MusicCollectionViewController: UICollectionViewController {
     func setupUI(){
         collectionView.backgroundColor = .clear
         self.collectionView!.register(MusicCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = true
     }
 }
 

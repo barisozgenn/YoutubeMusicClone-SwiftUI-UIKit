@@ -20,10 +20,7 @@ class HomeViewController : UIViewController {
     func setupUI(){
         view.backgroundColor = UIColor.theme.appBackgroundColor
         
-        view.addSubview(gradientBackground)
-        gradientBackground.anchor(top: view.topAnchor,
-                                  left: view.leftAnchor,
-                                  right: view.rightAnchor)
+        addGradientBackgroundLayer()
         
         view.addSubview(headerView)
         headerView.anchor(top: view.topAnchor,
@@ -83,19 +80,6 @@ class HomeViewController : UIViewController {
     }
     
     //MARK: - Properties
-    
-    private lazy var gradientBackground: UIView = {
-        let gradientView = UIView()
-        gradientView.setDimensions(height: 414, width: view.width)
-        
-        let gradient = CAGradientLayer()
-        gradient.frame = CGRect(x: 0, y: 0, width: view.width, height: 414)
-        gradient.colors = [UIColor.systemRed.cgColor, UIColor.clear.cgColor]
-        gradient.opacity = 0.58
-        gradientView.layer.insertSublayer(gradient, at: 0)
-        
-        return gradientView
-    }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()

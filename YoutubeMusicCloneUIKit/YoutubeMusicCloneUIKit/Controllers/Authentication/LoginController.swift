@@ -21,7 +21,7 @@ class LoginController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .default
         
-        view.layer.insertSublayer(gradientBackground, at: 0)
+        addGradientBackgroundLayer(height: view.height/2)
         
         view.addSubview(logoImageView)
         logoImageView.centerX(inView: view,
@@ -55,14 +55,6 @@ class LoginController: UIViewController {
     }
     
     // MARK: - Properties
-    private lazy var gradientBackground: CAGradientLayer = {
-        let gradient = CAGradientLayer()
-        gradient.frame = CGRect(x: 0, y: 0, width: view.width, height: view.height/2)
-        gradient.colors = [UIColor.systemRed.cgColor, UIColor.clear.cgColor]
-        gradient.opacity = 0.58
-        
-        return gradient
-    }()
     
     private let logoImageView: UIImageView = {
         let iv = UIImageView()
@@ -83,28 +75,13 @@ class LoginController: UIViewController {
     }()
     
     private let emailTextField: UITextField = {
-        let tf = UITextField()
-        tf.textColor = .white
-        tf.borderStyle = .roundedRect
-        tf.backgroundColor = .black.withAlphaComponent(0.7)
-        tf.keyboardAppearance = .dark
+        let tf = CustomTextField(placeHolder: "Email")
         tf.keyboardType = .emailAddress
-        tf.setHeight(55)
-        tf.attributedPlaceholder = NSAttributedString(string: "Email",
-                                                      attributes: [.foregroundColor : UIColor.white.withAlphaComponent(0.7)])
         return tf
     }()
     
     private let passwordTextField: UITextField = {
-        let tf = UITextField()
-        tf.textColor = .white
-        tf.borderStyle = .roundedRect
-        tf.backgroundColor = .black.withAlphaComponent(0.7)
-        tf.keyboardAppearance = .dark
-        tf.keyboardType = .default
-        tf.setHeight(55)
-        tf.attributedPlaceholder = NSAttributedString(string: "Password",
-                                                      attributes: [.foregroundColor : UIColor.white.withAlphaComponent(0.7)])
+        let tf = CustomTextField(placeHolder: "Password")
         tf.isSecureTextEntry = true
         return tf
     }()
@@ -112,7 +89,7 @@ class LoginController: UIViewController {
     private lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(.white, for: .normal)
-        button.setTitle("LOG IN".uppercased(), for: .normal)
+        button.setTitle("SIGN IN".uppercased(), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         button.titleLabel?.textAlignment = .center
         button.backgroundColor = .systemRed.withAlphaComponent(0.29)
@@ -124,36 +101,17 @@ class LoginController: UIViewController {
     
     private lazy var registerButton: UIButton = {
         let button = UIButton(type: .system)
-       
-        let attributesRegular : [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.7), .font: UIFont.systemFont(ofSize: 16)]
-        let attributesBold : [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.92), .font: UIFont.boldSystemFont(ofSize: 16)]
+        button.attributedTitle(reqularText: "Don't you have an account?  ", boldText: "Sign Up")
         
-        var attributedTitle = NSMutableAttributedString(string: "Don't you have an account?  ", attributes: attributesRegular)
-        
-        let attributedTitleBold = NSAttributedString(string: "Sign Up", attributes: attributesBold)
-        attributedTitle.append(attributedTitleBold)
-        
-        button.setAttributedTitle(attributedTitle,for: .normal)
-        
-        button.setHeight(55)
         button.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
         return button
     }()
     
     private lazy var forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
-       
-        let attributesRegular : [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.7), .font: UIFont.systemFont(ofSize: 16)]
-        let attributesBold : [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.77), .font: UIFont.boldSystemFont(ofSize: 16)]
-        
-        var attributedTitle = NSMutableAttributedString(string: "Forgot password?  ", attributes: attributesRegular)
-        
-        let attributedTitleBold = NSAttributedString(string: "Get help signing in.", attributes: attributesBold)
-        attributedTitle.append(attributedTitleBold)
-        
-        button.setAttributedTitle(attributedTitle,for: .normal)
-        
+        button.attributedTitle(reqularText: "Forgot password?  ", boldText: "Get help signing in.")
         button.setHeight(55)
+        
         button.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
         return button
     }()
@@ -165,7 +123,8 @@ class LoginController: UIViewController {
     }
     
     @objc func didTapRegister(){
-        print("DEBUG: register button pressed")
+        let viewController = RegisterController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc func didTapForgotPassword(){

@@ -30,6 +30,10 @@
 		AF4ECC202929213300F70024 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC1F2929213300F70024 /* LoginController.swift */; };
 		AF4ECC222929213E00F70024 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC212929213E00F70024 /* RegisterController.swift */; };
 		AF4ECC242929332700F70024 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC232929332700F70024 /* CustomTextField.swift */; };
+		AF4ECC26292A1DD600F70024 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC25292A1DD600F70024 /* RegisterViewModel.swift */; };
+		AF4ECC28292A1DE600F70024 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC27292A1DE600F70024 /* LoginViewModel.swift */; };
+		AF4ECC2B292A261200F70024 /* AuthenticationViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC2A292A261200F70024 /* AuthenticationViewModelProtocol.swift */; };
+		AF4ECC2D292A279500F70024 /* FormViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC2C292A279500F70024 /* FormViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,10 @@
 		AF4ECC1F2929213300F70024 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		AF4ECC212929213E00F70024 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		AF4ECC232929332700F70024 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		AF4ECC25292A1DD600F70024 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		AF4ECC27292A1DE600F70024 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		AF4ECC2A292A261200F70024 /* AuthenticationViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModelProtocol.swift; sourceTree = "<group>"; };
+		AF4ECC2C292A279500F70024 /* FormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +137,7 @@
 		AF4ECBF829278E6400F70024 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				AF4ECC29292A217700F70024 /* Authentication */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -186,6 +195,17 @@
 			children = (
 				AF4ECC1F2929213300F70024 /* LoginController.swift */,
 				AF4ECC212929213E00F70024 /* RegisterController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		AF4ECC29292A217700F70024 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				AF4ECC2C292A279500F70024 /* FormViewModelProtocol.swift */,
+				AF4ECC2A292A261200F70024 /* AuthenticationViewModelProtocol.swift */,
+				AF4ECC25292A1DD600F70024 /* RegisterViewModel.swift */,
+				AF4ECC27292A1DE600F70024 /* LoginViewModel.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -260,8 +280,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF4ECC28292A1DE600F70024 /* LoginViewModel.swift in Sources */,
 				AF4ECC222929213E00F70024 /* RegisterController.swift in Sources */,
 				AF4ECC202929213300F70024 /* LoginController.swift in Sources */,
+				AF4ECC2D292A279500F70024 /* FormViewModelProtocol.swift in Sources */,
 				AF4ECBE329278E4A00F70024 /* AppDelegate.swift in Sources */,
 				AF4ECBFE29278EDB00F70024 /* MainTabBarController.swift in Sources */,
 				AF4ECC172928BA2700F70024 /* MusicRectCell.swift in Sources */,
@@ -275,11 +297,13 @@
 				AF4ECC132927F9C400F70024 /* UIViewController.swift in Sources */,
 				AF4ECC07292790AA00F70024 /* ProfileViewController.swift in Sources */,
 				AF4ECC242929332700F70024 /* CustomTextField.swift in Sources */,
+				AF4ECC26292A1DD600F70024 /* RegisterViewModel.swift in Sources */,
 				AF4ECC052927909E00F70024 /* LibraryViewController.swift in Sources */,
 				AF4ECC012927908100F70024 /* HomeViewController.swift in Sources */,
 				AF4ECC192928BB0C00F70024 /* MusicRectCollectionViewController.swift in Sources */,
 				AF4ECC152927FA0300F70024 /* UIButton.swift in Sources */,
 				AF4ECC0B2927A50B00F70024 /* UIColor.swift in Sources */,
+				AF4ECC2B292A261200F70024 /* AuthenticationViewModelProtocol.swift in Sources */,
 				AF4ECC112927D80B00F70024 /* MusicCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

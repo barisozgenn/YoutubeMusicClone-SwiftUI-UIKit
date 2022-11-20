@@ -8,12 +8,12 @@
 import UIKit
 
 class RegisterController: UIViewController {
- 
-    // MARK: - Lifecycle
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setNotificationObservers()
     }
     
     // MARK: - Helpers
@@ -26,8 +26,8 @@ class RegisterController: UIViewController {
         
         view.addSubview(photoButton)
         photoButton.centerX(inView: view,
-                              topAnchor: view.safeAreaLayoutGuide.topAnchor,
-                              paddingTop: 70)
+                            topAnchor: view.safeAreaLayoutGuide.topAnchor,
+                            paddingTop: 70)
         photoButton.setDimensions(height: 92, width: 92)
         
         
@@ -51,8 +51,15 @@ class RegisterController: UIViewController {
         loginButton.centerX(inView: view)
         loginButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
+    func setNotificationObservers(){
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordRepeatTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        nameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
     
     // MARK: - Properties
+    private var viewModel = RegisterViewModel()
     
     private lazy var photoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -93,9 +100,10 @@ class RegisterController: UIViewController {
         button.setTitle("SIGN UP".uppercased(), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         button.titleLabel?.textAlignment = .center
-        button.backgroundColor = .systemRed.withAlphaComponent(0.29)
+        button.backgroundColor = viewModel.buttonBackgroundColor
         button.layer.cornerRadius = 4
         button.setHeight(55)
+        button.isEnabled = viewModel.formIsValid
         button.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
         return button
     }()
@@ -109,7 +117,6 @@ class RegisterController: UIViewController {
     }()
     
     // MARK: - Actions
-    
     @objc func didTapLogin(){
         navigationController?.popViewController(animated: true)
     }
@@ -119,6 +126,48 @@ class RegisterController: UIViewController {
     }
     
     @objc func didTapPhoto(){
+        let picker = UIImagePickerController()
+        picker.delegate = self
         
+        picker.allowsEditing = true
+        
+        present(picker, animated: true, completion: nil)
+    }
+    
+    @objc func textDidChange(sender: UITextField){
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else if sender == passwordTextField {
+            viewModel.password = sender.text
+        } else if sender == nameTextField {
+            viewModel.name = sender.text
+        } else if sender == passwordRepeatTextField {
+            viewModel.passwordRepeat = sender.text
+        }
+        
+        updateForm()
+    }
+}
+
+// MARK: - Form ViewModel Protocol
+extension RegisterController: FormViewModelProtocol {
+    func updateForm() {
+        registerButton.backgroundColor = viewModel.buttonBackgroundColor
+        registerButton.isEnabled = viewModel.formIsValid
+        registerButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+    }
+}
+
+// MARK: - ImagePicker Delegates
+extension RegisterController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let selectedImage = info[.editedImage] as? UIImage else {return}
+        
+        photoButton.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        photoButton.layer.borderColor = UIColor.red.withAlphaComponent(0.58).cgColor
+        photoButton.layer.masksToBounds = true
+        
+        self.dismiss(animated: true, completion: nil)
     }
 }

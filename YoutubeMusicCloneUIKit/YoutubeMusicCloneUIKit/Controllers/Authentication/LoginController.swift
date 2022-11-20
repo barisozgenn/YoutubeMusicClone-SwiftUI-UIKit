@@ -9,10 +9,10 @@ import UIKit
 class LoginController: UIViewController {
     
     // MARK: - Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setNotificationObservers()
     }
     
     // MARK: - Helpers
@@ -53,8 +53,13 @@ class LoginController: UIViewController {
         registerButton.centerX(inView: view)
         registerButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
+    func setNotificationObservers(){
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
     
     // MARK: - Properties
+    private var viewModel = LoginViewModel()
     
     private let logoImageView: UIImageView = {
         let iv = UIImageView()
@@ -88,13 +93,14 @@ class LoginController: UIViewController {
     
     private lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(viewModel.buttonTitleColor, for: .normal)
         button.setTitle("SIGN IN".uppercased(), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         button.titleLabel?.textAlignment = .center
-        button.backgroundColor = .systemRed.withAlphaComponent(0.29)
+        button.backgroundColor = viewModel.buttonBackgroundColor
         button.layer.cornerRadius = 4
         button.setHeight(55)
+        button.isEnabled = viewModel.formIsValid
         button.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
         return button
     }()
@@ -117,7 +123,6 @@ class LoginController: UIViewController {
     }()
     
     // MARK: - Actions
-    
     @objc func didTapLogin(){
         print("DEBUG: login button pressed")
     }
@@ -129,5 +134,24 @@ class LoginController: UIViewController {
     
     @objc func didTapForgotPassword(){
         print("DEBUG: forgot password button pressed")
+    }
+    
+    @objc func textDidChange(sender: UITextField){
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else if sender == passwordTextField {
+            viewModel.password = sender.text
+        }
+        
+        updateForm()
+    }
+}
+
+// MARK: - Form ViewModel Protocol
+extension LoginController: FormViewModelProtocol {
+    func updateForm() {
+        loginButton.backgroundColor = viewModel.buttonBackgroundColor
+        loginButton.isEnabled = viewModel.formIsValid
+        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
     }
 }

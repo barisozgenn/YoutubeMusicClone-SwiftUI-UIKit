@@ -6,10 +6,14 @@
 //
 
 import UIKit
-class LibraryViewController : UIViewController {
+class LibraryViewController : MainViewController {
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .blue
+    }
+    
+    //MARK: - Helpers
+    override func addBackgroundTopColor() {
+        addGradientBackgroundLayer(bgColor: .systemMint)
     }
 }

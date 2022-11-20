@@ -6,10 +6,13 @@
 //
 
 import UIKit
-class ExploreViewController : UIViewController {
+class ExploreViewController : MainViewController {
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .systemPink
+    }
+    //MARK: - Helpers
+    override func addBackgroundTopColor() {
+        addGradientBackgroundLayer(bgColor: .systemOrange)
     }
 }

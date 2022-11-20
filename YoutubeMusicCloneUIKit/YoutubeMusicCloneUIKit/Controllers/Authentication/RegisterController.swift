@@ -60,6 +60,8 @@ class RegisterController: UIViewController {
     
     // MARK: - Properties
     private var viewModel = RegisterViewModel()
+    private var profileImage: UIImage?
+    private let authService = AuthService.shared
     
     private lazy var photoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -122,7 +124,35 @@ class RegisterController: UIViewController {
     }
     
     @objc func didTapRegister(){
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text,
+              let name = nameTextField.text,
+              let image = profileImage else {return}
         
+       
+        let authCreadential = AuthCredentials(email: email, password: password)
+        
+        ImageUploadService.uploadImage(image: image, imageUploadedType: .profile) { [weak self] (urlString, fileName) in
+            
+            let user = UserModel(name: name, email: email, profileImageUrl: fileName, registerDate: Date().toTimestamp())
+            
+            self?.authService.registerUser(withCredential: authCreadential, userModel: user, completion: { error in
+                
+                if let error = error {
+                    DispatchQueue.main.async{
+                        let alert = UIAlertController(title: "OPPS!",
+                                                      message: error.localizedDescription,
+                                                      preferredStyle: .alert)
+                        self?.present(alert, animated: true, completion: nil)
+                        return
+                    }
+                    
+                    self?.dismiss(animated: true)
+                }
+              
+            })
+            
+        }
     }
     
     @objc func didTapPhoto(){
@@ -163,6 +193,7 @@ extension RegisterController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let selectedImage = info[.editedImage] as? UIImage else {return}
+        profileImage = selectedImage
         
         photoButton.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
         photoButton.layer.borderColor = UIColor.red.withAlphaComponent(0.58).cgColor

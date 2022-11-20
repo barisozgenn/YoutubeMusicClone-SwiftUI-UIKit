@@ -11,10 +11,10 @@ import UIKit
 extension UIViewController {
     //static let hud = JGProgressHUD(style: .dark)
     
-    func addGradientBackgroundLayer(height: CGFloat = 414) {
+    func addGradientBackgroundLayer(height: CGFloat = 414, bgColor: UIColor = UIColor.systemRed) {
         let gradient = CAGradientLayer()
         gradient.frame = CGRect(x: 0, y: 0, width: view.width, height: height)
-        gradient.colors = [UIColor.systemRed.cgColor, UIColor.clear.cgColor]
+        gradient.colors = [bgColor.cgColor, UIColor.clear.cgColor]
         gradient.opacity = 0.58
         
         view.layer.insertSublayer(gradient, at: 0)

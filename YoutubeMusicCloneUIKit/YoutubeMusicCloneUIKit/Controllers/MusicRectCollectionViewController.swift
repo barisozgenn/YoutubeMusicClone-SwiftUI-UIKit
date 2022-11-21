@@ -26,6 +26,10 @@ class MusicRectCollectionViewController: UICollectionViewController {
         self.collectionView!.register(MusicRectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.showsHorizontalScrollIndicator = false
     }
+    
+    //MARK: - Properties
+    
+    lazy var cellWidth: CGFloat = 120
 }
 
 //MARK: - UICollectionViewDataSource
@@ -44,7 +48,7 @@ extension MusicRectCollectionViewController {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension MusicRectCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 150)
+        return CGSize(width: cellWidth, height: cellWidth + 35)
     }
 }
 

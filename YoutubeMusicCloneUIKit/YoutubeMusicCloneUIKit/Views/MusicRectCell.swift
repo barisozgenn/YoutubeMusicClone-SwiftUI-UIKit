@@ -42,7 +42,7 @@ class MusicRectCell: UICollectionViewCell{
                               left: leftAnchor,
                               paddingTop: 10,
                               paddingLeft: 0)
-        musicImageView.setDimensions(height: 120, width: 120)
+        musicImageView.setDimensions(height: frame.width, width: frame.width)
         //musicImageView.layer.cornerRadius = 32
         
         

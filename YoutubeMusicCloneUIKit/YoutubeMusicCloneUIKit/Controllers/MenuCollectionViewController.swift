@@ -25,6 +25,9 @@ class MenuCollectionViewController: UICollectionViewController {
         self.collectionView!.register(MenuCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.showsHorizontalScrollIndicator = false
     }
+    
+    //MARK: - Poperties
+    lazy var chevronVisibility = false
 }
 
 //MARK: - UICollectionViewDataSource
@@ -36,7 +39,9 @@ extension MenuCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MenuCell
-       
+        
+        cell.checronVisibility = chevronVisibility
+        
         return cell
     }
 }

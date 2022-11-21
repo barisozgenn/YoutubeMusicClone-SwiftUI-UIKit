@@ -8,6 +8,8 @@ import UIKit
 
 class MenuCell: UICollectionViewCell{
     //MARK: - Properties
+    lazy var checronVisibility = false
+    
     private let menuImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
@@ -25,6 +27,16 @@ class MenuCell: UICollectionViewCell{
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.numberOfLines = 1
         return label
+    }()
+    
+    private let menuDetailImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFit
+        iv.clipsToBounds = true
+        iv.isUserInteractionEnabled = true
+        iv.image = UIImage(systemName: "chevron.right")
+        iv.tintColor = .white
+        return iv
     }()
     
     //MARK: - Lifecycle
@@ -45,6 +57,14 @@ class MenuCell: UICollectionViewCell{
         titleLabel.centerY(inView: menuImageView,
                            leftAnchor: menuImageView.rightAnchor,
                            paddingLeft: 29)
+        
+        if checronVisibility {
+            addSubview(menuDetailImageView)
+            menuDetailImageView.centerY(inView: menuImageView,
+                                        leftAnchor: menuImageView.rightAnchor,
+                               paddingLeft: 58)
+            menuDetailImageView.setDimensions(height: 24, width: 24)
+        }
         
     }
     

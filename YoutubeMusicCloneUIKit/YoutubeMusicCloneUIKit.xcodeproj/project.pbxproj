@@ -48,6 +48,8 @@
 		AF4ECC46292A417300F70024 /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC45292A417300F70024 /* AuthCredentials.swift */; };
 		AF4ECC49292A59CD00F70024 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AF4ECC48292A59CD00F70024 /* FirebaseFirestoreSwift */; };
 		AF4ECC4B292A60E100F70024 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC4A292A60E100F70024 /* MainViewController.swift */; };
+		AF4ECC4D292BB4DB00F70024 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC4C292BB4DB00F70024 /* MenuCell.swift */; };
+		AF4ECC4F292BB63E00F70024 /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC4E292BB63E00F70024 /* MenuCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		AF4ECC43292A410A00F70024 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		AF4ECC45292A417300F70024 /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
 		AF4ECC4A292A60E100F70024 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		AF4ECC4C292BB4DB00F70024 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		AF4ECC4E292BB63E00F70024 /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,7 @@
 				AF4ECC0C2927C60B00F70024 /* MusicCollectionViewController.swift */,
 				AF4ECC182928BB0C00F70024 /* MusicRectCollectionViewController.swift */,
 				AF4ECC1A2928C50400F70024 /* CategoryCollectionViewController.swift */,
+				AF4ECC4E292BB63E00F70024 /* MenuCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				AF4ECC102927D80B00F70024 /* MusicCell.swift */,
 				AF4ECC162928BA2700F70024 /* MusicRectCell.swift */,
 				AF4ECC1C2928C58500F70024 /* CategoryCell.swift */,
+				AF4ECC4C292BB4DB00F70024 /* MenuCell.swift */,
 				AF4ECC232929332700F70024 /* CustomTextField.swift */,
 			);
 			path = Views;
@@ -355,6 +361,7 @@
 				AF4ECC1B2928C50400F70024 /* CategoryCollectionViewController.swift in Sources */,
 				AF4ECC032927908E00F70024 /* ExploreViewController.swift in Sources */,
 				AF4ECBE529278E4B00F70024 /* SceneDelegate.swift in Sources */,
+				AF4ECC4F292BB63E00F70024 /* MenuCollectionViewController.swift in Sources */,
 				AF4ECC132927F9C400F70024 /* UIViewController.swift in Sources */,
 				AF4ECC07292790AA00F70024 /* ProfileViewController.swift in Sources */,
 				AF4ECC242929332700F70024 /* CustomTextField.swift in Sources */,
@@ -368,6 +375,7 @@
 				AF4ECC46292A417300F70024 /* AuthCredentials.swift in Sources */,
 				AF4ECC0B2927A50B00F70024 /* UIColor.swift in Sources */,
 				AF4ECC2B292A261200F70024 /* AuthenticationViewModelProtocol.swift in Sources */,
+				AF4ECC4D292BB4DB00F70024 /* MenuCell.swift in Sources */,
 				AF4ECC112927D80B00F70024 /* MusicCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

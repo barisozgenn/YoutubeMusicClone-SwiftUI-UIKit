@@ -24,6 +24,33 @@ class ProfileViewController : UIViewController {
                           left: view.leftAnchor,
                           width: view.safeAreaLayoutGuide.layoutFrame.width-50,
                           height: 44)
+        
+        view.addSubview(accountHeaderView)
+        accountHeaderView.anchor(top: headerView.bottomAnchor,
+                                 left: view.safeAreaLayoutGuide.leftAnchor,
+                                 paddingTop: 29,
+                                 width: view.safeAreaLayoutGuide.layoutFrame.width-92,
+                                 height: 90)
+        
+        view.addSubview(titleLabel)
+        titleLabel.anchor(top: accountHeaderView.bottomAnchor,
+                          left: view.leftAnchor,
+                          paddingTop: 29,
+                          paddingLeft: 14)
+        
+        view.addSubview(menuCollectionView.view)
+        menuCollectionView.view.anchor(top: titleLabel.bottomAnchor,
+                                       left: view.leftAnchor,
+                                       paddingTop: 14,
+                                       paddingLeft: 14,
+                                       paddingBottom: 58,
+                                       width: view.width - 28,
+                                       height: 300)
+        
+        view.addSubview(policyAndTermsButton)
+        policyAndTermsButton.centerX(inView: view,
+                                     topAnchor: view.safeAreaLayoutGuide.bottomAnchor,
+                                     paddingTop: -29)
     }
     
     //MARK: - Properties
@@ -82,6 +109,101 @@ class ProfileViewController : UIViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         button.titleLabel?.textAlignment = .center
         button.addTarget(self, action: #selector(didTapSignOut), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var accountProfileButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setBackgroundImage(UIImage(named: "profile-photo"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.backgroundColor = .clear
+        button.layer.cornerRadius = 24
+        button.clipsToBounds = true
+        return button
+    }()
+    
+    private lazy var accountNameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.text = "Baris Ozgen".capitalized
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        return label
+    }()
+    
+    private lazy var accountUsernameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.text = "@barisozgen"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        return label
+    }()
+    
+    private lazy var accountManageButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Manage your Google account", for: .normal)
+        button.titleLabel?.textAlignment = .left;
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        button.backgroundColor = .clear
+        return button
+    }()
+    
+    private lazy var accountHeaderView: UIView = {
+        let headerAccount = UIView()
+        //headerView.setDimensions(height: 35, width: view.width)
+        
+        headerAccount.addSubview(accountProfileButton)
+        accountProfileButton.anchor(top: headerAccount.topAnchor,
+                                    left: headerAccount.leftAnchor,
+                                    paddingTop: 0,
+                                    paddingLeft: 14,
+                                    width: 48,
+                                    height: 48)
+        
+        let stackView = UIStackView(arrangedSubviews: [accountNameLabel, accountUsernameLabel, accountManageButton])
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .leading
+        
+        headerAccount.addSubview(stackView)
+        stackView.anchor(top: headerAccount.topAnchor,
+                         left: accountProfileButton.rightAnchor,
+                         paddingLeft: 14,
+                         width: 250,
+                         height: 80)
+        stackView.spacing = 1
+        stackView.setCustomSpacing(14, after: accountUsernameLabel)
+        return headerAccount
+    }()
+    
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.text = "youtube premium".uppercased()
+        label.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    private lazy var layoutMenu: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 14
+        layout.minimumInteritemSpacing = 2
+        return layout
+    }()
+    
+    private lazy var menuCollectionView: MenuCollectionViewController = {
+        let menuCollectionView = MenuCollectionViewController(collectionViewLayout: layoutMenu)
+        return menuCollectionView
+    }()
+    
+    private lazy var policyAndTermsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Privacy Policy  .  Terms Of Service", for: .normal)
+        button.titleLabel?.textAlignment = .center;
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        button.setTitleColor(.gray, for: .normal)
+        button.backgroundColor = .clear
         return button
     }()
     

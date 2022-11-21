@@ -19,7 +19,7 @@ class MainTabBarController: UITabBarController {
     }
     
     //MARK: - Helpers
-
+    
     func configureViewControllers(){
         
         view.backgroundColor = .blue
@@ -27,7 +27,7 @@ class MainTabBarController: UITabBarController {
         let home = templateNavigationController(title: "Home", image: "music.note.house", rootViewController: HomeViewController())
         let explore = templateNavigationController(title: "Explore", image: "safari", rootViewController: ExploreViewController())
         let library = templateNavigationController(title: "Library", image: "tray.full", rootViewController: LibraryViewController())
-
+        
         viewControllers = [home, explore, library]
         
         tabBar.backgroundColor = UIColor.theme.tabBarBackgroundColor
@@ -57,7 +57,7 @@ class MainTabBarController: UITabBarController {
                 let nav =  UINavigationController(rootViewController: controller)
                 nav.modalTransitionStyle = .coverVertical
                 nav.modalPresentationStyle = .overFullScreen
-            self.present(nav, animated: true)
+                self.present(nav, animated: true)
             }
         }
     }

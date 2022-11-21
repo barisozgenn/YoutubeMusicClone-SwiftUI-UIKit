@@ -15,7 +15,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewControllers()
-        //checkUserLoggedIn()
+        checkUserLoggedIn()
     }
     
     //MARK: - Helpers
@@ -55,8 +55,9 @@ class MainTabBarController: UITabBarController {
             DispatchQueue.main.async {
                 let controller = LoginController()
                 let nav =  UINavigationController(rootViewController: controller)
-                nav.modalPresentationStyle = .fullScreen
-                self.present(nav, animated: true)
+                nav.modalTransitionStyle = .coverVertical
+                nav.modalPresentationStyle = .overFullScreen
+            self.present(nav, animated: true)
             }
         }
     }

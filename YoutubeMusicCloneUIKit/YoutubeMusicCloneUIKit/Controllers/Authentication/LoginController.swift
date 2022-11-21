@@ -60,7 +60,8 @@ class LoginController: UIViewController {
     
     // MARK: - Properties
     private var viewModel = LoginViewModel()
-    
+    private let authService = AuthService.shared
+
     private let logoImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
@@ -124,7 +125,33 @@ class LoginController: UIViewController {
     
     // MARK: - Actions
     @objc func didTapLogin(){
-        print("DEBUG: login button pressed")
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else {return}
+        
+        let authCreadential = AuthCredentials(email: email, password: password)
+        // baris@test.YouTubeMusic.clone
+        authService.loginUser(withCredential: authCreadential) {[weak self] (error, userProfile) in
+            if let error = error {
+              
+                    let alert = UIAlertController(title: "OPPS!",
+                                                  message: error.localizedDescription,
+                                                  preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                        UIAlertAction in
+                        alert.dismiss(animated: true)
+                    }
+                    alert.addAction(okAction)
+                    
+                    self?.present(alert, animated: true, completion: nil)
+                    return
+                
+            }
+            
+            guard let userProfile = userProfile else{return}
+            print("DEBUG: user logged in: \(userProfile.name)")
+            self?.dismiss(animated: true)
+            //self?.view.window!.rootViewController?.dismiss(animated: true)
+        }
     }
     
     @objc func didTapRegister(){
@@ -138,7 +165,7 @@ class LoginController: UIViewController {
     
     @objc func textDidChange(sender: UITextField){
         if sender == emailTextField {
-            viewModel.email = sender.text
+            viewModel.email = sender.text?.lowercased()
         } else if sender == passwordTextField {
             viewModel.password = sender.text
         }

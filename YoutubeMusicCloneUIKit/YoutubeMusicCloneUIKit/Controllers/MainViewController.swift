@@ -80,7 +80,7 @@ class MainViewController: UIViewController {
     private lazy var headerTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.text = "music".uppercased()
+        label.text = "music".capitalized
         label.font = UIFont.systemFont(ofSize: 26, weight: .heavy)
         return label
     }()
@@ -112,8 +112,17 @@ class MainViewController: UIViewController {
         button.backgroundColor = .clear
         button.layer.cornerRadius = 14
         button.clipsToBounds = true
-        //button.addTarget(self, action: #selector(didTapX), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapProfile), for: .touchUpInside)
         return button
     }()
+    
+    //MARK: - Actions
+    
+    @objc func didTapProfile(){
+        let viewController = ProfileViewController()
+        viewController.modalTransitionStyle = .coverVertical
+        viewController.modalPresentationStyle = .overFullScreen
+        present(viewController, animated: true)
+    }
     
 }

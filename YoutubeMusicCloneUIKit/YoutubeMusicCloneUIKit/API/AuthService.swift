@@ -30,17 +30,35 @@ struct AuthService {
         }
     }
     
-    func registerUser(withCredential authCredential: AuthCredentials, userModel: UserModel, completion: @escaping(Error?) -> Void){
+    func registerUser(withCredential authCredential: AuthCredentials, userModel: UserModel,  completion: @escaping (Error?, _ userProfile: UserModel?) -> ()){
         
         Auth.auth().createUser(withEmail: authCredential.email, password: authCredential.password) { (result, error) in
             
             if let error = error {
                 print("DEBUG: Error writing document: \(error.localizedDescription)")
-                return
+                completion(error, nil)
             }
             
             guard let user = result?.user else {return}
             saveUserProfile(user: user, userModel: userModel)
+            
+            fetchUserProfile { userProfile in
+                completion(nil, userProfile)
+            }
+        }
+    }
+    
+    func loginUser(withCredential authCredential: AuthCredentials, completion: @escaping (Error?, _ userProfile: UserModel?) -> ()){
+        Auth.auth().signIn(withEmail: authCredential.email, password: authCredential.password) { (result, error) in
+            
+            if let error = error {
+                print("DEBUG: Error writing document: \(error.localizedDescription)")
+                completion(error, nil)
+            }
+            
+            fetchUserProfile { userProfile in
+                completion(nil, userProfile)
+            }
         }
     }
     

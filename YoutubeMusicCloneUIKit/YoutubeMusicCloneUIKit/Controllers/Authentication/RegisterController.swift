@@ -106,7 +106,7 @@ class RegisterController: UIViewController {
         button.layer.cornerRadius = 4
         button.setHeight(55)
         button.isEnabled = viewModel.formIsValid
-        button.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
         return button
     }()
     
@@ -129,27 +129,31 @@ class RegisterController: UIViewController {
               let name = nameTextField.text,
               let image = profileImage else {return}
         
-       
+       // baris@test.YouTubeMusic.clone
         let authCreadential = AuthCredentials(email: email, password: password)
         
         ImageUploadService.uploadImage(image: image, imageUploadedType: .profile) { [weak self] (urlString, fileName) in
             
             let user = UserModel(name: name, email: email, profileImageUrl: fileName, registerDate: Date().toTimestamp())
             
-            self?.authService.registerUser(withCredential: authCreadential, userModel: user, completion: { error in
+            self?.authService.registerUser(withCredential: authCreadential, userModel: user, completion: { [weak self] (error, userProfile) in
                 
                 if let error = error {
-                    DispatchQueue.main.async{
                         let alert = UIAlertController(title: "OPPS!",
                                                       message: error.localizedDescription,
                                                       preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                            UIAlertAction in
+                            alert.dismiss(animated: true)
+                        }
+                        alert.addAction(okAction)
+                        
                         self?.present(alert, animated: true, completion: nil)
                         return
-                    }
-                    
-                    self?.dismiss(animated: true)
                 }
-              
+                guard let userProfile = userProfile else{return}
+                print("DEBUG: user logged in: \(userProfile.name)")
+                self?.view.window!.rootViewController?.dismiss(animated: true)
             })
             
         }
@@ -166,7 +170,7 @@ class RegisterController: UIViewController {
     
     @objc func textDidChange(sender: UITextField){
         if sender == emailTextField {
-            viewModel.email = sender.text
+            viewModel.email = sender.text?.lowercased()
         } else if sender == passwordTextField {
             viewModel.password = sender.text
         } else if sender == nameTextField {

@@ -50,6 +50,7 @@
 		AF4ECC4B292A60E100F70024 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC4A292A60E100F70024 /* MainViewController.swift */; };
 		AF4ECC4D292BB4DB00F70024 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC4C292BB4DB00F70024 /* MenuCell.swift */; };
 		AF4ECC4F292BB63E00F70024 /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC4E292BB63E00F70024 /* MenuCollectionViewController.swift */; };
+		AF4ECC51292BD63900F70024 /* ExploreCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC50292BD63900F70024 /* ExploreCategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		AF4ECC4A292A60E100F70024 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AF4ECC4C292BB4DB00F70024 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		AF4ECC4E292BB63E00F70024 /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
+		AF4ECC50292BD63900F70024 /* ExploreCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				AF4ECC1C2928C58500F70024 /* CategoryCell.swift */,
 				AF4ECC4C292BB4DB00F70024 /* MenuCell.swift */,
 				AF4ECC232929332700F70024 /* CustomTextField.swift */,
+				AF4ECC50292BD63900F70024 /* ExploreCategoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				AF4ECC28292A1DE600F70024 /* LoginViewModel.swift in Sources */,
 				AF4ECC222929213E00F70024 /* RegisterController.swift in Sources */,
 				AF4ECC40292A3D1700F70024 /* UserModel.swift in Sources */,
+				AF4ECC51292BD63900F70024 /* ExploreCategoryView.swift in Sources */,
 				AF4ECC202929213300F70024 /* LoginController.swift in Sources */,
 				AF4ECC42292A3DF200F70024 /* Constants.swift in Sources */,
 				AF4ECC2D292A279500F70024 /* FormViewModelProtocol.swift in Sources */,

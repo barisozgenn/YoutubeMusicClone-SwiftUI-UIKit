@@ -37,7 +37,7 @@ class LibraryViewController : MainViewController {
                                                    left: view.leftAnchor,
                                                    paddingTop: 5,
                                                    paddingLeft: 14)
-        listenAgainMusicCollectionView.view.setDimensions(height: 229,
+        listenAgainMusicCollectionView.view.setDimensions(height: 240,
                                                           width: view.width - 14)
         
         view.addSubview(menuCollectionView.view)
@@ -82,7 +82,7 @@ class LibraryViewController : MainViewController {
     
     private lazy var listenAgainMusicCollectionView: MusicRectCollectionViewController = {
         let musicCollectionView = MusicRectCollectionViewController(collectionViewLayout: layoutRect)
-        musicCollectionView.cellWidth = 150
+        musicCollectionView.cellWidth = 158
         return musicCollectionView
     }()
     

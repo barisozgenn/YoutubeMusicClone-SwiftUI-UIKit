@@ -1,0 +1,154 @@
+[
+    {
+        "id":"WildberryLillet",
+        "title":"Wildberry Lillet (Remix)",
+        "artist":"Nina Chuba",
+        "imageUrl":"WildberryLillet.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":230
+    },
+    {
+        "id":"Unholy",
+        "title":"Unholy",
+        "artist":"Sam Smith & Kim Petras",
+        "imageUrl":"Unholy.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":157
+    },
+    {
+        "id":"Bamba",
+        "title":"Bamba (feat. BIA)",
+        "artist":"Luciano & Aitch",
+        "imageUrl":"Bamba.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":206
+    },
+    {
+        "id":"ZukunftPink",
+        "title":"Zukunft Pink (feat. Inéz)",
+        "artist":"Peter Fox",
+        "imageUrl":"ZukunftPink.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":241
+    },
+    {
+        "id":"MamawarderMannimHaus",
+        "title":"Mama war der Mann im Haus",
+        "artist":"Xatar & SAMY",
+        "imageUrl":"MamawarderMannimHaus.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":204
+    },
+    {
+        "id":"Layla",
+        "title":"Layla",
+        "artist":"DJ Robin & Schürze",
+        "imageUrl":"Layla.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":188
+    },
+    {
+        "id":"CalmDown",
+        "title":"Calm Down",
+        "artist":"Rema & Selena Gomez",
+        "imageUrl":"CalmDown.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":210
+    },
+    {
+        "id":"BeiNacht",
+        "title":"Bei Nacht",
+        "artist":"AYLIVA",
+        "imageUrl":"BeiNacht.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":201
+    },
+    {
+        "id":"Moulaga",
+        "title":"Moulaga",
+        "artist":"Bobby Van Damme & Dorian",
+        "imageUrl":"Moulaga.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":198
+    },
+    {
+        "id":"Liebstdumich",
+        "title":"Liebst du mich",
+        "artist":"Sido",
+        "imageUrl":"Liebstdumich.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":178
+    },
+    {
+        "id":"ImGood",
+        "title":"I'm Good (Blue)",
+        "artist":"David Guetta & Bebe Rexha",
+        "imageUrl":"ImGood.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":229
+    },
+    {
+        "id":"BLACKOUT",
+        "title":"BLACKOUT",
+        "artist":"AK Ausserkontrolle",
+        "imageUrl":"BLACKOUT.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":201
+    },
+    {
+        "id":"MissYou",
+        "title":"Miss You",
+        "artist":"Oliver Tree & Robin Schulz",
+        "imageUrl":"MissYou.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":178
+    },
+    {
+        "id":"WENDEKiND",
+        "title":"WENDEKiND",
+        "artist":"FiNCH, Marteria & Silbermond",
+        "imageUrl":"WENDEKiND.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":179
+    },
+    {
+        "id":"Mockingbird",
+        "title":"Mockingbird",
+        "artist":"Eminem",
+        "imageUrl":"Mockingbird.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":189
+    },
+    {
+        "id":"SNAP",
+        "title":"SNAP",
+        "artist":"Rosa Linn",
+        "imageUrl":"SNAP.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":157
+    },
+    {
+        "id":"WervonEuch",
+        "title":"Wer von Euch?!",
+        "artist":"LX & Silva",
+        "imageUrl":"WervonEuch.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":207
+    },
+    {
+        "id":"UnderTheInfluence",
+        "title":"Under The Influence",
+        "artist":"Chris Brown",
+        "imageUrl":"UnderTheInfluence.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":214
+    },
+    {
+        "id":"AntiHero",
+        "title":"Anti-Hero",
+        "artist":"Taylor Swift",
+        "imageUrl":"AntiHero.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":192
+    }
+]

@@ -52,6 +52,7 @@
 		AF4ECC4F292BB63E00F70024 /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC4E292BB63E00F70024 /* MenuCollectionViewController.swift */; };
 		AF4ECC51292BD63900F70024 /* ExploreCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC50292BD63900F70024 /* ExploreCategoryView.swift */; };
 		AF4ECC54292CB77800F70024 /* MusicHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC53292CB77800F70024 /* MusicHeader.swift */; };
+		AF4ECC56292D10F900F70024 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC55292D10F900F70024 /* MusicModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,8 @@
 		AF4ECC4E292BB63E00F70024 /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
 		AF4ECC50292BD63900F70024 /* ExploreCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCategoryView.swift; sourceTree = "<group>"; };
 		AF4ECC53292CB77800F70024 /* MusicHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHeader.swift; sourceTree = "<group>"; };
+		AF4ECC55292D10F900F70024 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
+		AF4ECC57292D178800F70024 /* musics.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = musics.geojson; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +203,7 @@
 				AF4ECC3D292A3A9A00F70024 /* FirebaseFileType.swift */,
 				AF4ECC3F292A3D1700F70024 /* UserModel.swift */,
 				AF4ECC45292A417300F70024 /* AuthCredentials.swift */,
+				AF4ECC55292D10F900F70024 /* MusicModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,6 +238,7 @@
 				AF4ECBEB29278E4C00F70024 /* Assets.xcassets */,
 				AF4ECBF029278E4C00F70024 /* Info.plist */,
 				AF4ECC37292A368300F70024 /* GoogleService-Info.plist */,
+				AF4ECC57292D178800F70024 /* musics.geojson */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				AF4ECC3A292A39E600F70024 /* ImageUploadService.swift in Sources */,
 				AF4ECC28292A1DE600F70024 /* LoginViewModel.swift in Sources */,
 				AF4ECC222929213E00F70024 /* RegisterController.swift in Sources */,
+				AF4ECC56292D10F900F70024 /* MusicModel.swift in Sources */,
 				AF4ECC40292A3D1700F70024 /* UserModel.swift in Sources */,
 				AF4ECC51292BD63900F70024 /* ExploreCategoryView.swift in Sources */,
 				AF4ECC202929213300F70024 /* LoginController.swift in Sources */,

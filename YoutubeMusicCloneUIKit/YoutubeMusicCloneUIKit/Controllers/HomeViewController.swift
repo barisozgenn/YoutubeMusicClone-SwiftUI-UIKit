@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 class HomeViewController : MainViewController {
     
     //MARK: - LifeCycle
@@ -13,6 +14,7 @@ class HomeViewController : MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        fetchData()
     }
     
     //MARK: - Helpers
@@ -57,6 +59,9 @@ class HomeViewController : MainViewController {
     
     //MARK: - Properties
     
+    private let dataService = MusicService()
+    private lazy var musics : [MusicModel] = []
+    
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
@@ -76,7 +81,7 @@ class HomeViewController : MainViewController {
         layout.minimumInteritemSpacing = 2
         //layout.sectionHeadersPinToVisibleBounds = true
         layout.sectionInset = UIEdgeInsets(top: 14.0, left: 14.0, bottom: 0.0, right: 0.0)
-       // layout.headerReferenceSize = CGSize(width: view.frame.width, height: 35)
+        // layout.headerReferenceSize = CGSize(width: view.frame.width, height: 35)
         layout.itemSize = CGSize(width: view.frame.width - 50, height: 60)
         return layout
     }()
@@ -120,5 +125,11 @@ class HomeViewController : MainViewController {
     
     @objc func didTapMore(){
         print("DEBUG: more music button pressed")
+    }
+    
+    // MARK: - API
+    
+    private func fetchData(){
+        musics = dataService.musics
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF341EEE292D4B5D00C92A2B /* musics.json in Resources */ = {isa = PBXBuildFile; fileRef = AF341EED292D4B5D00C92A2B /* musics.json */; };
 		AF4ECBE329278E4A00F70024 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECBE229278E4A00F70024 /* AppDelegate.swift */; };
 		AF4ECBE529278E4B00F70024 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECBE429278E4B00F70024 /* SceneDelegate.swift */; };
 		AF4ECBEC29278E4C00F70024 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF4ECBEB29278E4C00F70024 /* Assets.xcassets */; };
@@ -53,9 +54,12 @@
 		AF4ECC51292BD63900F70024 /* ExploreCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC50292BD63900F70024 /* ExploreCategoryView.swift */; };
 		AF4ECC54292CB77800F70024 /* MusicHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC53292CB77800F70024 /* MusicHeader.swift */; };
 		AF4ECC56292D10F900F70024 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC55292D10F900F70024 /* MusicModel.swift */; };
+		AF4ECC5B292D398C00F70024 /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC5A292D398C00F70024 /* MusicService.swift */; };
+		AF4ECC5D292D3A9100F70024 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC5C292D3A9100F70024 /* Bundle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF341EED292D4B5D00C92A2B /* musics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = musics.json; sourceTree = "<group>"; };
 		AF4ECBDF29278E4A00F70024 /* YoutubeMusicCloneUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeMusicCloneUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4ECBE229278E4A00F70024 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF4ECBE429278E4B00F70024 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +103,8 @@
 		AF4ECC50292BD63900F70024 /* ExploreCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCategoryView.swift; sourceTree = "<group>"; };
 		AF4ECC53292CB77800F70024 /* MusicHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHeader.swift; sourceTree = "<group>"; };
 		AF4ECC55292D10F900F70024 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
-		AF4ECC57292D178800F70024 /* musics.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = musics.geojson; sourceTree = "<group>"; };
+		AF4ECC5A292D398C00F70024 /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
+		AF4ECC5C292D3A9100F70024 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +221,7 @@
 				AF4ECC122927F9C400F70024 /* UIViewController.swift */,
 				AF4ECC142927FA0300F70024 /* UIButton.swift */,
 				AF4ECC43292A410A00F70024 /* Date.swift */,
+				AF4ECC5C292D3A9100F70024 /* Bundle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,6 +231,7 @@
 			children = (
 				AF4ECC39292A39E600F70024 /* ImageUploadService.swift */,
 				AF4ECC3B292A3A0000F70024 /* AuthService.swift */,
+				AF4ECC5A292D398C00F70024 /* MusicService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -238,7 +245,7 @@
 				AF4ECBEB29278E4C00F70024 /* Assets.xcassets */,
 				AF4ECBF029278E4C00F70024 /* Info.plist */,
 				AF4ECC37292A368300F70024 /* GoogleService-Info.plist */,
-				AF4ECC57292D178800F70024 /* musics.geojson */,
+				AF341EED292D4B5D00C92A2B /* musics.json */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -351,6 +358,7 @@
 				AF4ECBEF29278E4C00F70024 /* LaunchScreen.storyboard in Resources */,
 				AF4ECBEC29278E4C00F70024 /* Assets.xcassets in Resources */,
 				AF4ECC38292A368300F70024 /* GoogleService-Info.plist in Resources */,
+				AF341EEE292D4B5D00C92A2B /* musics.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,8 +399,10 @@
 				AF4ECC052927909E00F70024 /* LibraryViewController.swift in Sources */,
 				AF4ECC012927908100F70024 /* HomeViewController.swift in Sources */,
 				AF4ECC3C292A3A0000F70024 /* AuthService.swift in Sources */,
+				AF4ECC5B292D398C00F70024 /* MusicService.swift in Sources */,
 				AF4ECC192928BB0C00F70024 /* MusicRectCollectionViewController.swift in Sources */,
 				AF4ECC152927FA0300F70024 /* UIButton.swift in Sources */,
+				AF4ECC5D292D3A9100F70024 /* Bundle.swift in Sources */,
 				AF4ECC44292A410A00F70024 /* Date.swift in Sources */,
 				AF4ECC46292A417300F70024 /* AuthCredentials.swift in Sources */,
 				AF4ECC0B2927A50B00F70024 /* UIColor.swift in Sources */,

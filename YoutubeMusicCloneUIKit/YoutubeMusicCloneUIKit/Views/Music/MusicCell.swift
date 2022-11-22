@@ -64,7 +64,7 @@ class MusicCell: UICollectionViewCell{
         addSubview(musicImageView)
         musicImageView.anchor(top: topAnchor,
                               left: leftAnchor,
-                              paddingTop: 10,
+                              paddingTop: 0,
                               paddingLeft: 0)
         musicImageView.setDimensions(height: 60, width: 60)
         //musicImageView.layer.cornerRadius = 32

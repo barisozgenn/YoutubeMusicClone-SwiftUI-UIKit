@@ -37,7 +37,7 @@ class ExploreCategoryView: UIView {
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1
         layer.cornerRadius = 4
-        backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        backgroundColor = UIColor.black.withAlphaComponent(0.58)
         
         
         addSubview(menuImageView)
@@ -46,12 +46,12 @@ class ExploreCategoryView: UIView {
                              paddingTop: 7, paddingLeft: 7)
         menuImageView.setDimensions(height: 24, width: 24)
         
+       
+        
         addSubview(titleLabel)
         titleLabel.text = title
-        titleLabel.setWidth(frame.width)
         titleLabel.anchor(top: menuImageView.bottomAnchor, left: menuImageView.leftAnchor,
-                          paddingTop: 7)
-        
+                          paddingTop: 7, width: 107, height: 50)
     }
     
     required init?(coder: NSCoder) {

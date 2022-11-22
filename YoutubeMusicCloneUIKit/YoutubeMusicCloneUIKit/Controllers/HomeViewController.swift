@@ -32,36 +32,22 @@ class HomeViewController : MainViewController {
                              paddingTop: 14,
                              paddingLeft: 14)
         
-        view.addSubview(titleLabel)
-        titleLabel.anchor(top: subtitleLabel.bottomAnchor,
-                          left: view.leftAnchor,
-                          paddingTop: 4,
-                          paddingLeft: 14)
+        
+        view.addSubview(headerView)
+        headerView.anchor(top: subtitleLabel.bottomAnchor, left: subtitleLabel.leftAnchor, width: view.width, height: 35)
         
         view.addSubview(quickPickMusicCollectionView.view)
-        quickPickMusicCollectionView.view.anchor(top: titleLabel.bottomAnchor,
-                                                 left: view.leftAnchor,
-                                                 paddingTop: 10,
-                                                 paddingLeft: 14)
-        quickPickMusicCollectionView.view.setDimensions(height: 300,
-                                                        width: view.width - 14)
+        quickPickMusicCollectionView.view.anchor(top: headerView.bottomAnchor,
+                                                 left: view.leftAnchor)
+        quickPickMusicCollectionView.view.setDimensions(height: 277,
+                                                        width: view.width)
         
         
-        view.addSubview(titleListenAgainLabel)
-        titleListenAgainLabel.anchor(top: quickPickMusicCollectionView.view.bottomAnchor,
-                                     left: view.leftAnchor,
-                                     paddingTop: 29,
-                                     paddingLeft: 14)
-        titleListenAgainLabel.setDimensions(height: 35, width: view.width - 80)
-        
-        view.addSubview(moreButton)
-        moreButton.centerY(inView: titleListenAgainLabel,
-                           leftAnchor: titleListenAgainLabel.rightAnchor,
-                           paddingLeft: 2)
-        moreButton.setDimensions(height: 28, width: 55)
+        view.addSubview(headerViewListenAgain)
+        headerViewListenAgain.anchor(top: quickPickMusicCollectionView.view.bottomAnchor, left: subtitleLabel.leftAnchor, paddingTop: 29, height: 35)
         
         view.addSubview(listenAgainMusicCollectionView.view)
-        listenAgainMusicCollectionView.view.anchor(top: titleListenAgainLabel.bottomAnchor,
+        listenAgainMusicCollectionView.view.anchor(top: headerViewListenAgain.bottomAnchor,
                                                    left: view.leftAnchor,
                                                    paddingTop: 5,
                                                    paddingLeft: 14)
@@ -70,15 +56,6 @@ class HomeViewController : MainViewController {
     }
     
     //MARK: - Properties
-    
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.text = "Quick picks"
-        label.font = UIFont.systemFont(ofSize: 26, weight: .heavy)
-        label.numberOfLines = 2
-        return label
-    }()
     
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
@@ -89,42 +66,29 @@ class HomeViewController : MainViewController {
         return label
     }()
     
+    
+    private lazy var headerView: MusicHeader = MusicHeader(title: "Quick picks", headerButtonType: .none, headerWidth: view.width)
+    
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 2
+        //layout.sectionHeadersPinToVisibleBounds = true
+        layout.sectionInset = UIEdgeInsets(top: 14.0, left: 14.0, bottom: 0.0, right: 0.0)
+       // layout.headerReferenceSize = CGSize(width: view.frame.width, height: 35)
+        layout.itemSize = CGSize(width: view.frame.width - 50, height: 60)
         return layout
     }()
     
     private lazy var quickPickMusicCollectionView: MusicCollectionViewController = {
         let musicCollectionView = MusicCollectionViewController(collectionViewLayout: layout)
+        //musicCollectionView.headerTitle = "Quick picks"
+        //musicCollectionView.headerButtonType = .none
         return musicCollectionView
     }()
     
-    private lazy var titleListenAgainLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.text = "Listen again"
-        label.font = UIFont.systemFont(ofSize: 26, weight: .heavy)
-        label.numberOfLines = 2
-        return label
-    }()
-    
-    private lazy var moreButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitleColor(.white, for: .normal)
-        button.setTitle("more".capitalized, for: .normal)
-        button.titleLabel?.lineBreakMode = .byCharWrapping;
-        button.titleLabel?.textAlignment = .center;
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .heavy)
-        button.backgroundColor = .clear
-        button.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 14
-        button.addTarget(self, action: #selector(didTapMore), for: .touchUpInside)
-        return button
-    }()
+    private lazy var headerViewListenAgain: MusicHeader = MusicHeader(title: "Listen again", headerButtonType: .more, headerWidth: view.width)
     
     private lazy var layoutRect: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()

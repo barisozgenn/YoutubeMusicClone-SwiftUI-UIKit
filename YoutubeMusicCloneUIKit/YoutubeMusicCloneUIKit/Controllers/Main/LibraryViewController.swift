@@ -60,6 +60,7 @@ class LibraryViewController : MainViewController {
     private lazy var listenAgainMusicCollectionView: MusicRectCollectionViewController = {
         let musicCollectionView = MusicRectCollectionViewController(collectionViewLayout: layoutRect)
         musicCollectionView.cellWidth = 158
+        musicCollectionView.musicsDataSource = musics.sorted(by: {$0.title > $1.title})
         return musicCollectionView
     }()
     

@@ -15,7 +15,9 @@ class MusicCollectionViewController: UICollectionViewController {
     //MARK: - Properties
     //lazy var headerTitle: String = "baris"
     //lazy var headerButtonType: MusicHeader.HeaderButtonType = .none
-    
+    var musicsDataSource: [MusicModel]? {
+        didSet { collectionView.reloadData() }
+    }
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -33,18 +35,22 @@ class MusicCollectionViewController: UICollectionViewController {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
     }
+    
 }
 
 //MARK: - UICollectionViewDataSource
 extension MusicCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return musicsDataSource?.count ?? 10
     }
   
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MusicCell
         
+        if let musics = musicsDataSource {
+            cell.viewModel = MusicViewModel(music: musics[indexPath.item])
+        }
         return cell
     }
     

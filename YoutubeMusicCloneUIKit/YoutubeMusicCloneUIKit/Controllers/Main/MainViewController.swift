@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchData()
     }
     
     //MARK: - Helpers
@@ -29,6 +30,9 @@ class MainViewController: UIViewController {
         addGradientBackgroundLayer()
     }
     //MARK: - Properties
+    
+    private let dataService = MusicService.shared
+    lazy var musics : [MusicModel] = []
     
     private lazy var headerView: UIView = {
         let header = UIView()
@@ -125,4 +129,10 @@ class MainViewController: UIViewController {
         present(viewController, animated: true)
     }
     
+    
+    //MARK: - API
+    private func fetchData(){
+        musics = dataService.musics
+        print(musics.count)
+    }
 }

@@ -62,6 +62,7 @@ class ExploreViewController : MainViewController {
     private lazy var listenAgainMusicCollectionView: MusicRectCollectionViewController = {
         let musicCollectionView = MusicRectCollectionViewController(collectionViewLayout: layoutRect)
         musicCollectionView.cellWidth = 158
+        musicCollectionView.musicsDataSource = musics.reversed()
         return musicCollectionView
     }()
     
@@ -80,6 +81,7 @@ class ExploreViewController : MainViewController {
     
     private lazy var quickPickMusicCollectionView: MusicCollectionViewController = {
         let musicCollectionView = MusicCollectionViewController(collectionViewLayout: layout)
+        musicCollectionView.musicsDataSource = musics
         return musicCollectionView
     }()
     

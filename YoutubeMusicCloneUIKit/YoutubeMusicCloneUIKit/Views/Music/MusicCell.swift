@@ -9,14 +9,17 @@ import UIKit
 
 class MusicCell: UICollectionViewCell{
     //MARK: - Properties
+    var viewModel: MusicViewModel? {
+        didSet { setupUI() }
+    }
     
     private let musicImageView: UIImageView = {
         let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
+        iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
-        iv.image = UIImage(named: "AppIcon")
-        iv.backgroundColor = .black
+        //iv.image = UIImage(named: "youtube-music-app-clone-logo")
+        iv.backgroundColor = .gray.withAlphaComponent(0.58)
         iv.layer.cornerRadius = 4
         
         return iv
@@ -25,10 +28,10 @@ class MusicCell: UICollectionViewCell{
     private lazy var artistButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(.lightGray, for: .normal)
-        button.setTitle("artist name".capitalized, for: .normal)
+        button.setTitle(" ".capitalized, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         button.titleLabel?.textAlignment = .left
-        
+        button.titleLabel?.backgroundColor = .gray.withAlphaComponent(0.58)
         button.addTarget(self, action: #selector(didTapAstist), for: .touchUpInside)
         return button
     }()
@@ -36,8 +39,9 @@ class MusicCell: UICollectionViewCell{
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.text = "Music title is here will be shown".capitalized
+        label.text = " ".capitalized
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.backgroundColor = .gray.withAlphaComponent(0.58)
         label.numberOfLines = 2
         return label
     }()
@@ -96,6 +100,20 @@ class MusicCell: UICollectionViewCell{
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Helpers
+    func setupUI(){
+        guard let viewModel = viewModel else { return }
+        
+        titleLabel.text = viewModel.title
+        artistButton.setTitle(viewModel.artist, for: .normal)
+        
+        titleLabel.backgroundColor = .clear
+        artistButton.titleLabel?.backgroundColor = .clear
+        
+        viewModel.downloadImage {[weak self] image in
+            self?.musicImageView.image = image
+        }
+    }
     // MARK: - Actions
     
     @objc func didTapAstist(){

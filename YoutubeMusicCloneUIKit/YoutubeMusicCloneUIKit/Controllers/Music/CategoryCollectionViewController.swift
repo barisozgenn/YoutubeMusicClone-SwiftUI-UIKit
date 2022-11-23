@@ -19,9 +19,12 @@ class CategoryCollectionViewController: UICollectionViewController {
 
     }
     
-    //MARK: - Helpers
+    //MARK: - Properties
     
-    lazy var categories = ["relax","energize","focus","workout","commute","baris","ozgen"]
+    lazy var categoriesDataSource = ["relax","energize","focus","workout","commute","baris","ozgen"]
+    
+    //MARK: - Helpers
+
     func setupUI(){
         collectionView.backgroundColor = .clear
         self.collectionView!.register(CategoryCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -32,7 +35,7 @@ class CategoryCollectionViewController: UICollectionViewController {
 //MARK: - UICollectionViewDataSource
 extension CategoryCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        return categoriesDataSource.count
     }
   
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -41,7 +44,8 @@ extension CategoryCollectionViewController {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CategoryCell
        
-        //cell.titleLabel.text = category
+        let category = categoriesDataSource[indexPath.item]
+        cell.title = category
         
         return cell
     }
@@ -49,7 +53,7 @@ extension CategoryCollectionViewController {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension CategoryCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 111 + 14, height: 35)
+        let item = categoriesDataSource[indexPath.item]
+        return CGSize(width: (item.count + 2) * 12, height: 40)
     }
 }

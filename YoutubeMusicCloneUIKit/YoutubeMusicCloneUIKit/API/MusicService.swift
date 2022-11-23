@@ -9,11 +9,22 @@ import Foundation
 import Combine
 
 class MusicService {
-    lazy var musics = [MusicModel]()
+    static let shared = MusicService()
+    lazy var musics : [MusicModel] = []
     
     init() {
-        guard let musics = Bundle.main.readFromLocalFile(fileName: "musics.json") as? [MusicModel] else {return}
-        self.musics = musics
+       fetch(forName: "musics")
     }
-    
+    private func fetch(forName fileName: String) {
+        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
+                do {
+                    let data = try Data(contentsOf: url)
+                    let decoder = JSONDecoder()
+                    let jsonData = try decoder.decode([MusicModel].self, from: data)
+                    self.musics = jsonData
+                } catch {
+                    print("DEBUG: parsing json error:\(error)")
+                }
+            }
+    }
 }

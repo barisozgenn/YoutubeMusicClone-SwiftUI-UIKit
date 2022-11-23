@@ -11,6 +11,12 @@ import UIKit
 private let reuseIdentifier = "MusicRectCell"
 
 class MusicRectCollectionViewController: UICollectionViewController {
+    //MARK: - Properties
+    
+    var musicsDataSource: [MusicModel]? {
+        didSet { collectionView.reloadData() }
+    }
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -35,13 +41,15 @@ class MusicRectCollectionViewController: UICollectionViewController {
 //MARK: - UICollectionViewDataSource
 extension MusicRectCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return musicsDataSource?.count ?? 10
     }
   
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MusicRectCell
-       
+        if let musics = musicsDataSource {
+            cell.viewModel = MusicViewModel(music: musics[indexPath.item])
+        }
         return cell
     }
 }

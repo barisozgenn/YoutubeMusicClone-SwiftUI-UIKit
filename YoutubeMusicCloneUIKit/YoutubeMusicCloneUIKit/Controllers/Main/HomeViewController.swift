@@ -14,7 +14,6 @@ class HomeViewController : MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        fetchData()
     }
     
     //MARK: - Helpers
@@ -55,12 +54,10 @@ class HomeViewController : MainViewController {
                                                    paddingLeft: 14)
         listenAgainMusicCollectionView.view.setDimensions(height: 329,
                                                           width: view.width - 14)
+        
     }
     
     //MARK: - Properties
-    
-    private let dataService = MusicService()
-    private lazy var musics : [MusicModel] = []
     
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
@@ -90,6 +87,7 @@ class HomeViewController : MainViewController {
         let musicCollectionView = MusicCollectionViewController(collectionViewLayout: layout)
         //musicCollectionView.headerTitle = "Quick picks"
         //musicCollectionView.headerButtonType = .none
+        musicCollectionView.musicsDataSource = musics.sorted(by: {$0.durationInSeconds > $1.durationInSeconds})
         return musicCollectionView
     }()
     
@@ -105,6 +103,7 @@ class HomeViewController : MainViewController {
     
     private lazy var listenAgainMusicCollectionView: MusicRectCollectionViewController = {
         let musicCollectionView = MusicRectCollectionViewController(collectionViewLayout: layoutRect)
+        musicCollectionView.musicsDataSource = musics.sorted(by: {$0.artist < $1.artist})
         return musicCollectionView
     }()
     
@@ -112,7 +111,7 @@ class HomeViewController : MainViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 14
-        layout.minimumInteritemSpacing = 2
+        layout.minimumInteritemSpacing = 7
         return layout
     }()
     
@@ -127,9 +126,4 @@ class HomeViewController : MainViewController {
         print("DEBUG: more music button pressed")
     }
     
-    // MARK: - API
-    
-    private func fetchData(){
-        musics = dataService.musics
-    }
 }

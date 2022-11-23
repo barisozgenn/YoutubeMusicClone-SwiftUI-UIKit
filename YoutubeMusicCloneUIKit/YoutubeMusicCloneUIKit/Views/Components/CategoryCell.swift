@@ -8,13 +8,16 @@ import UIKit
 
 class CategoryCell: UICollectionViewCell{
     //MARK: - Properties
-
+    var title: String? {
+        didSet { setupUI() }
+    }
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.text = "Category Name".capitalized
+        label.text = " "
         label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         label.numberOfLines = 1
+        label.textAlignment = .center
         return label
     }()
     
@@ -32,7 +35,7 @@ class CategoryCell: UICollectionViewCell{
         titleLabel.anchor(top: topAnchor,
                           left: leftAnchor,
                           right: rightAnchor,
-                          paddingTop: 7,
+                          paddingTop: 9,
                           paddingLeft: 7,
                           paddingRight: 7)
         
@@ -42,6 +45,13 @@ class CategoryCell: UICollectionViewCell{
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Helpers
+    func setupUI(){
+        guard let title = title else { return }
+        
+        titleLabel.text = title.capitalized
+        
+    }
     // MARK: - Actions
     
     @objc func didTapAstist(){

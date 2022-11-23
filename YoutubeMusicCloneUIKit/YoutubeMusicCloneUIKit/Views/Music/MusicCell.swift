@@ -7,11 +7,18 @@
 
 import UIKit
 
+// Protocol used for selected music back
+protocol MusicSelectedDelegate: AnyObject {
+    func showMusicBottomPage(music: MusicViewModel)
+}
+
 class MusicCell: UICollectionViewCell{
     //MARK: - Properties
     var viewModel: MusicViewModel? {
         didSet { setupUI() }
     }
+    
+    weak var delegate: MusicSelectedDelegate? = nil
     
     private let musicImageView: UIImageView = {
         let iv = UIImageView()
@@ -121,6 +128,9 @@ class MusicCell: UICollectionViewCell{
     }
     
     @objc func didTapDetail(){
-        print("DEBUG: detail bottom page button pressed")
+        // Call this method on whichever class implements our delegate protocol
+        guard let viewModel = viewModel else { return }
+        delegate?.showMusicBottomPage(music: viewModel)
     }
 }
+

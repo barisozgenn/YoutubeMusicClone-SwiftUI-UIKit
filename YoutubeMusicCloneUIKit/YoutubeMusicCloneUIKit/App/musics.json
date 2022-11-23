@@ -13,7 +13,7 @@
         "artist":"Sam Smith & Kim Petras",
         "imageUrl":"Unholy.jpeg",
         "musicUrl":"",
-        "durationInSeconds":157
+        "durationInSeconds":207
     },
     {
         "id":"Bamba",
@@ -90,10 +90,18 @@
     {
         "id":"BLACKOUT",
         "title":"BLACKOUT",
-        "artist":"AK Ausserkontrolle",
+        "artist":"zAK Ausserkontrolle",
         "imageUrl":"BLACKOUT.jpeg",
         "musicUrl":"",
         "durationInSeconds":201
+    },
+    {
+        "id":"BarisOzgenSwiftuiYoutubeMusicClone",
+        "title":"SwiftUI",
+        "artist":"Baris Ozgen",
+        "imageUrl":"BarisOzgenSwiftuiYoutubeMusicClone.jpeg",
+        "musicUrl":"",
+        "durationInSeconds":292
     },
     {
         "id":"MissYou",
@@ -101,7 +109,7 @@
         "artist":"Oliver Tree & Robin Schulz",
         "imageUrl":"MissYou.jpeg",
         "musicUrl":"",
-        "durationInSeconds":178
+        "durationInSeconds":192
     },
     {
         "id":"WENDEKiND",
@@ -117,7 +125,7 @@
         "artist":"Eminem",
         "imageUrl":"Mockingbird.jpeg",
         "musicUrl":"",
-        "durationInSeconds":189
+        "durationInSeconds":199
     },
     {
         "id":"SNAP",
@@ -125,7 +133,7 @@
         "artist":"Rosa Linn",
         "imageUrl":"SNAP.jpeg",
         "musicUrl":"",
-        "durationInSeconds":157
+        "durationInSeconds":205
     },
     {
         "id":"WervonEuch",
@@ -149,6 +157,6 @@
         "artist":"Taylor Swift",
         "imageUrl":"AntiHero.jpeg",
         "musicUrl":"",
-        "durationInSeconds":192
+        "durationInSeconds":178
     }
 ]

@@ -103,7 +103,7 @@ class HomeViewController : MainViewController {
     
     private lazy var listenAgainMusicCollectionView: MusicRectCollectionViewController = {
         let musicCollectionView = MusicRectCollectionViewController(collectionViewLayout: layoutRect)
-        musicCollectionView.musicsDataSource = musics.sorted(by: {$0.artist < $1.artist})
+        musicCollectionView.musicsDataSource = musics.sorted(by: {$0.durationInSeconds < $1.durationInSeconds})
         return musicCollectionView
     }()
     

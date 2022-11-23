@@ -10,6 +10,8 @@
 		AF341EEE292D4B5D00C92A2B /* musics.json in Resources */ = {isa = PBXBuildFile; fileRef = AF341EED292D4B5D00C92A2B /* musics.json */; };
 		AF341EF1292E20D900C92A2B /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF341EF0292E20D900C92A2B /* MusicViewModel.swift */; };
 		AF341EF4292E247700C92A2B /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF341EF3292E247700C92A2B /* Double.swift */; };
+		AF341EFB292E5F9100C92A2B /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF341EFA292E5F9100C92A2B /* MenuViewModel.swift */; };
+		AF341EFE292E5FE900C92A2B /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF341EFD292E5FE900C92A2B /* MenuModel.swift */; };
 		AF4ECBE329278E4A00F70024 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECBE229278E4A00F70024 /* AppDelegate.swift */; };
 		AF4ECBE529278E4B00F70024 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECBE429278E4B00F70024 /* SceneDelegate.swift */; };
 		AF4ECBEC29278E4C00F70024 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF4ECBEB29278E4C00F70024 /* Assets.xcassets */; };
@@ -63,6 +65,8 @@
 		AF341EED292D4B5D00C92A2B /* musics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = musics.json; sourceTree = "<group>"; };
 		AF341EF0292E20D900C92A2B /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
 		AF341EF3292E247700C92A2B /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		AF341EFA292E5F9100C92A2B /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		AF341EFD292E5FE900C92A2B /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		AF4ECBDF29278E4A00F70024 /* YoutubeMusicCloneUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeMusicCloneUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4ECBE229278E4A00F70024 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF4ECBE429278E4B00F70024 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +191,22 @@
 			path = Music;
 			sourceTree = "<group>";
 		};
+		AF341EF9292E5F8200C92A2B /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				AF341EFA292E5F9100C92A2B /* MenuViewModel.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		AF341EFC292E5FD800C92A2B /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				AF341EFD292E5FE900C92A2B /* MenuModel.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		AF4ECBD629278E4A00F70024 = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +260,7 @@
 		AF4ECBF829278E6400F70024 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				AF341EF9292E5F8200C92A2B /* Menu */,
 				AF341EEF292E20C900C92A2B /* Music */,
 				AF4ECC29292A217700F70024 /* Authentication */,
 			);
@@ -258,8 +279,9 @@
 		AF4ECBFA29278E7300F70024 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AF341EF8292E366F00C92A2B /* Music */,
 				AF341EF7292E366200C92A2B /* User */,
+				AF341EF8292E366F00C92A2B /* Music */,
+				AF341EFC292E5FD800C92A2B /* Menu */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -435,6 +457,7 @@
 				AF4ECC3E292A3A9A00F70024 /* FirebaseFileType.swift in Sources */,
 				AF4ECC0F2927D06D00F70024 /* UIView.swift in Sources */,
 				AF4ECC4B292A60E100F70024 /* MainViewController.swift in Sources */,
+				AF341EFB292E5F9100C92A2B /* MenuViewModel.swift in Sources */,
 				AF4ECC0D2927C60B00F70024 /* MusicCollectionViewController.swift in Sources */,
 				AF4ECC1D2928C58500F70024 /* CategoryCell.swift in Sources */,
 				AF4ECC092927913300F70024 /* SearchViewController.swift in Sources */,
@@ -454,6 +477,7 @@
 				AF4ECC5B292D398C00F70024 /* MusicService.swift in Sources */,
 				AF4ECC192928BB0C00F70024 /* MusicRectCollectionViewController.swift in Sources */,
 				AF4ECC152927FA0300F70024 /* UIButton.swift in Sources */,
+				AF341EFE292E5FE900C92A2B /* MenuModel.swift in Sources */,
 				AF4ECC44292A410A00F70024 /* Date.swift in Sources */,
 				AF4ECC46292A417300F70024 /* AuthCredentials.swift in Sources */,
 				AF341EF4292E247700C92A2B /* Double.swift in Sources */,

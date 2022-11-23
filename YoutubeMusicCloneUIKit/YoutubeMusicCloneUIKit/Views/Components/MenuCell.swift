@@ -8,7 +8,9 @@ import UIKit
 
 class MenuCell: UICollectionViewCell{
     //MARK: - Properties
-    lazy var checronVisibility = false
+    var viewModel: MenuViewModel? {
+        didSet { setupUI() }
+    }
     
     private let menuImageView: UIImageView = {
         let iv = UIImageView()
@@ -58,18 +60,28 @@ class MenuCell: UICollectionViewCell{
                            leftAnchor: menuImageView.rightAnchor,
                            paddingLeft: 29)
         
-        if checronVisibility {
-            addSubview(menuDetailImageView)
-            menuDetailImageView.centerY(inView: menuImageView,
-                                        leftAnchor: menuImageView.rightAnchor,
-                               paddingLeft: 58)
-            menuDetailImageView.setDimensions(height: 24, width: 24)
-        }
+        
         
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Helpers
+    func setupUI(){
+        guard let viewModel = viewModel else { return }
+        
+        titleLabel.text = viewModel.title
+        menuImageView.image = UIImage(systemName: viewModel.systemImage)
+        
+        if viewModel.chevronVisibility {
+            addSubview(menuDetailImageView)
+            menuDetailImageView.centerY(inView: menuImageView,
+                                        leftAnchor: rightAnchor,
+                               paddingLeft: -20)
+            menuDetailImageView.setDimensions(height: 24, width: 24)
+        }
     }
     
     // MARK: - Actions

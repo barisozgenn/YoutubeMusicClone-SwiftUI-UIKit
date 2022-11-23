@@ -10,6 +10,12 @@ import UIKit
 private let reuseIdentifier = "MenuCell"
 
 class MenuCollectionViewController: UICollectionViewController {
+    //MARK: - Properties
+    
+    var menusDataSource: [MenuModel]? {
+        didSet { collectionView.reloadData() }
+    }
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -26,21 +32,21 @@ class MenuCollectionViewController: UICollectionViewController {
         collectionView.showsHorizontalScrollIndicator = false
     }
     
-    //MARK: - Poperties
-    lazy var chevronVisibility = false
 }
 
 //MARK: - UICollectionViewDataSource
 extension MenuCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return menusDataSource?.count ?? 10
     }
   
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MenuCell
         
-        cell.checronVisibility = chevronVisibility
+        if let menus = menusDataSource {
+            cell.viewModel = MenuViewModel(menu: menus[indexPath.item])
+        }
         
         return cell
     }

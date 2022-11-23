@@ -194,6 +194,15 @@ class ProfileViewController : UIViewController {
     
     private lazy var menuCollectionView: MenuCollectionViewController = {
         let menuCollectionView = MenuCollectionViewController(collectionViewLayout: layoutMenu)
+        menuCollectionView.menusDataSource = [
+        MenuModel(title: "Your channel", systemImage: "person.crop.square", chevronVisibility: false),
+        MenuModel(title: "Downloads", systemImage: "arrow.down.to.line", chevronVisibility: false),
+        MenuModel(title: "History", systemImage: "clock.arrow.circlepath", chevronVisibility: false),
+        MenuModel(title: "Your recap", systemImage: "arrowtriangle.right.and.line.vertical.and.arrowtriangle.left", chevronVisibility: false),
+        MenuModel(title: "Paid membership", systemImage: "dollarsign.circle", chevronVisibility: false),
+        MenuModel(title: "Swicth account", systemImage: "person.2", chevronVisibility: false),
+        MenuModel(title: "Settings", systemImage: "gearshape", chevronVisibility: false),
+        MenuModel(title: "Help & feedback", systemImage: "questionmark.circle", chevronVisibility: false)]
         return menuCollectionView
     }()
     

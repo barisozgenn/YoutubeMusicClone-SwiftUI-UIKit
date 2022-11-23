@@ -59,7 +59,7 @@ class LibraryViewController : MainViewController {
     
     private lazy var listenAgainMusicCollectionView: MusicRectCollectionViewController = {
         let musicCollectionView = MusicRectCollectionViewController(collectionViewLayout: layoutRect)
-        musicCollectionView.cellWidth = 158
+        musicCollectionView.cellWidth = 170
         musicCollectionView.musicsDataSource = musics.sorted(by: {$0.title > $1.title})
         return musicCollectionView
     }()
@@ -67,14 +67,20 @@ class LibraryViewController : MainViewController {
     private lazy var layoutMenu: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 14
+        layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 2
         return layout
     }()
     
     private lazy var menuCollectionView: MenuCollectionViewController = {
         let menuCollectionView = MenuCollectionViewController(collectionViewLayout: layoutMenu)
-        menuCollectionView.chevronVisibility = true
+        menuCollectionView.menusDataSource = [
+        MenuModel(title: "Downloads", systemImage: "arrow.down.to.line", chevronVisibility: true),
+        MenuModel(title: "Playlists", systemImage: "text.line.last.and.arrowtriangle.forward", chevronVisibility: true),
+        MenuModel(title: "Albums", systemImage: "record.circle", chevronVisibility: true),
+        MenuModel(title: "Songs", systemImage: "music.note.list", chevronVisibility: true),
+        MenuModel(title: "Artists", systemImage: "person.fill.checkmark", chevronVisibility: true),
+        MenuModel(title: "Subscriptions", systemImage: "play.tv", chevronVisibility: true)]
         return menuCollectionView
     }()
     

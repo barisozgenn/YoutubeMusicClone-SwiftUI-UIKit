@@ -52,6 +52,15 @@ extension MusicRectCollectionViewController {
         }
         return cell
     }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let musics = musicsDataSource {
+            let viewModel =  MusicViewModel(music: musics[indexPath.item])
+            NotificationCenter.default.post(name: NSNotification.Name(PLAY_MUSIC_VIEW_NOTIFICATION_NAME),
+                                            object: viewModel,
+                                            userInfo: nil)
+        }
+    }
 }
 //MARK: - UICollectionViewDelegateFlowLayout
 extension MusicRectCollectionViewController: UICollectionViewDelegateFlowLayout {

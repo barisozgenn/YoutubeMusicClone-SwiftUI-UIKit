@@ -15,6 +15,11 @@ class MainViewController: UIViewController {
         fetchData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+       
+    }
+    
     //MARK: - Helpers
     
     func configureUI(){
@@ -24,6 +29,8 @@ class MainViewController: UIViewController {
         
         navigationItem.titleView = headerView
         headerView.setDimensions(height: 44, width: view.safeAreaLayoutGuide.layoutFrame.width-50)
+        
+        
     }
     
     func addBackgroundTopColor(){
@@ -119,6 +126,7 @@ class MainViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapProfile), for: .touchUpInside)
         return button
     }()
+    
     
     //MARK: - Actions
     

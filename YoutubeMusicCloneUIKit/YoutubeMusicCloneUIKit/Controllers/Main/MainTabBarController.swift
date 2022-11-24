@@ -18,6 +18,15 @@ class MainTabBarController: UITabBarController {
         checkUserLoggedIn()
     }
     
+    //MARK: - Properties
+    
+    private lazy var bottomMusicPlayViewController: PlayMusicViewController = {
+        let bottomMusicPlayViewController = PlayMusicViewController()
+        bottomMusicPlayViewController.view.tag = PLAY_MUSIC_VIEW_TAG
+        bottomMusicPlayViewController.expandedViewHeight = view.height
+        return bottomMusicPlayViewController
+    }()
+    
     //MARK: - Helpers
     
     func configureViewControllers(){
@@ -34,6 +43,9 @@ class MainTabBarController: UITabBarController {
         tabBar.barTintColor = .white // unselected
         tabBar.tintColor = .white // selected
         
+        view.insertSubview(bottomMusicPlayViewController.view, at: 1)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showMusicDetailScreen(_:)), name: NSNotification.Name(TABBAR_NOTIFICATION_NAME), object: nil)
     }
     
     func templateNavigationController(title: String, image: String, rootViewController: UIViewController) -> UINavigationController {
@@ -60,5 +72,11 @@ class MainTabBarController: UITabBarController {
                 self.present(nav, animated: true)
             }
         }
+    }
+    
+    //MARK: - Actions
+    
+    @objc func showMusicDetailScreen(_ notification: Notification) {
+        self.tabBar.isHidden.toggle()
     }
 }

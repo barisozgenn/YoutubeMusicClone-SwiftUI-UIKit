@@ -55,10 +55,10 @@ class HomeViewController : MainViewController {
         listenAgainMusicCollectionView.view.setDimensions(height: 329,
                                                           width: view.width - 14)
         
+        
     }
     
     //MARK: - Properties
-    
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray

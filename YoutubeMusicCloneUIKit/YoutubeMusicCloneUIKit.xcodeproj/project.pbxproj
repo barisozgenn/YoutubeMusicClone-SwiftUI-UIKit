@@ -13,6 +13,8 @@
 		AF341EFB292E5F9100C92A2B /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF341EFA292E5F9100C92A2B /* MenuViewModel.swift */; };
 		AF341EFE292E5FE900C92A2B /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF341EFD292E5FE900C92A2B /* MenuModel.swift */; };
 		AF3F8B0A292E826D007B05A6 /* MusicBottomSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F8B09292E826D007B05A6 /* MusicBottomSheetController.swift */; };
+		AF4A57A1292F79C200B8C771 /* PlayMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4A57A0292F79C200B8C771 /* PlayMusicViewController.swift */; };
+		AF4A57A3292F97E600B8C771 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4A57A2292F97E600B8C771 /* UIImage.swift */; };
 		AF4ECBE329278E4A00F70024 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECBE229278E4A00F70024 /* AppDelegate.swift */; };
 		AF4ECBE529278E4B00F70024 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECBE429278E4B00F70024 /* SceneDelegate.swift */; };
 		AF4ECBEC29278E4C00F70024 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF4ECBEB29278E4C00F70024 /* Assets.xcassets */; };
@@ -69,6 +71,8 @@
 		AF341EFA292E5F9100C92A2B /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		AF341EFD292E5FE900C92A2B /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		AF3F8B09292E826D007B05A6 /* MusicBottomSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBottomSheetController.swift; sourceTree = "<group>"; };
+		AF4A57A0292F79C200B8C771 /* PlayMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMusicViewController.swift; sourceTree = "<group>"; };
+		AF4A57A2292F97E600B8C771 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		AF4ECBDF29278E4A00F70024 /* YoutubeMusicCloneUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeMusicCloneUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4ECBE229278E4A00F70024 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF4ECBE429278E4B00F70024 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 				AF4ECC1A2928C50400F70024 /* CategoryCollectionViewController.swift */,
 				AF4ECC4E292BB63E00F70024 /* MenuCollectionViewController.swift */,
 				AF3F8B09292E826D007B05A6 /* MusicBottomSheetController.swift */,
+				AF4A57A0292F79C200B8C771 /* PlayMusicViewController.swift */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 				AF4ECC142927FA0300F70024 /* UIButton.swift */,
 				AF4ECC43292A410A00F70024 /* Date.swift */,
 				AF341EF3292E247700C92A2B /* Double.swift */,
+				AF4A57A2292F97E600B8C771 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -461,8 +467,10 @@
 				AF4ECC3E292A3A9A00F70024 /* FirebaseFileType.swift in Sources */,
 				AF4ECC0F2927D06D00F70024 /* UIView.swift in Sources */,
 				AF4ECC4B292A60E100F70024 /* MainViewController.swift in Sources */,
+				AF4A57A1292F79C200B8C771 /* PlayMusicViewController.swift in Sources */,
 				AF341EFB292E5F9100C92A2B /* MenuViewModel.swift in Sources */,
 				AF4ECC0D2927C60B00F70024 /* MusicCollectionViewController.swift in Sources */,
+				AF4A57A3292F97E600B8C771 /* UIImage.swift in Sources */,
 				AF4ECC1D2928C58500F70024 /* CategoryCell.swift in Sources */,
 				AF4ECC092927913300F70024 /* SearchViewController.swift in Sources */,
 				AF4ECC1B2928C50400F70024 /* CategoryCollectionViewController.swift in Sources */,

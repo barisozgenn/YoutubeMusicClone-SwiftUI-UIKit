@@ -7,9 +7,13 @@
 
 import UIKit
 
-// Protocol used for selected music back
+// MARK: - Protocols
+// used for selected music back
 protocol MusicSelectedDelegate: AnyObject {
     func showMusicBottomPage(music: MusicViewModel)
+}
+extension MusicSelectedDelegate {
+    func showMusicBottomPage(music: MusicViewModel) {/*it is optional protocol */}
 }
 
 class MusicCell: UICollectionViewCell{

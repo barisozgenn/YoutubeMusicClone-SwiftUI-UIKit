@@ -18,6 +18,9 @@ class MusicCollectionViewController: UICollectionViewController, MusicSelectedDe
     var musicsDataSource: [MusicModel]? {
         didSet { collectionView.reloadData() }
     }
+    
+    weak var delegate: MusicSelectedDelegate? = nil
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -35,6 +38,7 @@ class MusicCollectionViewController: UICollectionViewController, MusicSelectedDe
         collectionView.isPagingEnabled = true
     }
     
+    //MARK: - Protocol
     func showMusicBottomPage(music: MusicViewModel) {
         let viewController = MusicBottomSheetController()
         viewController.viewModel = music
@@ -67,6 +71,15 @@ extension MusicCollectionViewController {
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let musics = musicsDataSource {
+            let viewModel =  MusicViewModel(music: musics[indexPath.item])
+            NotificationCenter.default.post(name: NSNotification.Name(PLAY_MUSIC_VIEW_NOTIFICATION_NAME),
+                                            object: viewModel,
+                                            userInfo: nil)
+        }
+    }
     /*override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
      
      let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseHeaderIdentifier, for: indexPath) as! MusicHeader

@@ -14,13 +14,6 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
     lazy var expandedViewHeight = 92.0
     private var viewModel : MusicViewModel?
     
-    private lazy var bottomBorder: UIView = {
-        let bottomBorder = UIView()
-        bottomBorder.frame = CGRect(x: 0, y: view.height - 4, width: view.width, height: 1)
-        bottomBorder.backgroundColor = .gray.withAlphaComponent(0.29)
-        return bottomBorder
-    }()
-    
     private lazy var musicBackgroundImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleToFill
@@ -97,7 +90,7 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
         let button = UIButton(type: .system)
         button.tintColor = .lightGray
         button.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
-        button.frame = CGRect(x: self.view.width - (29 + 35), y: 100 + self.view.width, width: 35, height: 35)
+        button.frame = CGRect(x: view.width - (29 + 35), y: 100 + view.width, width: 35, height: 35)
         button.addTarget(self, action: #selector(didTapLike(_ :)), for: .touchUpInside)
         button.layer.opacity = 0
         return button
@@ -107,7 +100,7 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
         let button = UIButton(type: .system)
         button.tintColor = .lightGray
         button.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
-        button.frame = CGRect(x: 29, y: 100 + self.view.width, width: 35, height: 35)
+        button.frame = CGRect(x: 29, y: 100 + view.width, width: 35, height: 35)
         button.addTarget(self, action: #selector(didTapLike(_ :)), for: .touchUpInside)
         button.layer.opacity = 0
         return button
@@ -117,10 +110,74 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
         let slider = UISlider()
         slider.maximumValue = 0
         slider.maximumValue = 0
-        slider.frame = CGRect(x: 29, y: 200 + view.width, width: view.width - 58, height: 35)
-        slider.layer.opacity = 0
+        slider.frame = CGRect(x: 0, y: view.height - 1, width: view.width, height: 1)
+        slider.setThumbImage(UIImage(systemName: "circle.fill"), for: .normal)
+        slider.tintColor = .tintColor
+        slider.thumbTintColor = .white
+        slider.addTarget(self, action: #selector(onChangeSlider(_ :)), for: .valueChanged)
         return slider
     }()
+    
+    private lazy var sliderCurrentValueLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .lightGray
+        label.text = "00:00"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        label.frame = CGRect(x: 31, y: 197 + view.width, width: 60, height: 35)
+        label.textAlignment = .left
+        label.layer.opacity = 0
+        return label
+    }()
+    
+    private lazy var sliderMaximumValueLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .lightGray
+        label.text = "01:00"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        label.frame = CGRect(x: view.width - (31 + 60), y: 197 + view.width, width: 60, height: 35)
+        label.textAlignment = .right
+        label.layer.opacity = 0
+        return label
+    }()
+    
+    private lazy var playButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .white
+        button.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        button.backgroundColor = UIColor.gray.withAlphaComponent(0.29)
+        button.layer.cornerRadius = 42
+        button.addTarget(self, action: #selector(didTapPlayStack(_:)), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private lazy var playStackView: UIStackView = {
+        let buttonShuffle = UIButton(type: .system)
+        buttonShuffle.setImage(UIImage(systemName: "shuffle"), for: .normal)
+        buttonShuffle.tintColor = .white
+        let buttonBack = UIButton(type: .system)
+        buttonBack.setImage(UIImage(systemName: "backward.end.fill"), for: .normal)
+        buttonBack.tintColor = .white
+        let buttonNext = UIButton(type: .system)
+        buttonNext.setImage(UIImage(systemName: "forward.end.fill"), for: .normal)
+        buttonNext.tintColor = .white
+        let buttonRepeat = UIButton(type: .system)
+        buttonRepeat.setImage(UIImage(systemName: "repeat"), for: .normal)
+        buttonRepeat.tintColor = .white
+        
+        let stackView = UIStackView(arrangedSubviews: [
+            buttonShuffle, buttonBack,
+            playButton,
+            buttonNext, buttonRepeat
+            ])
+        
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.frame = CGRect(x: 0, y: 239 + view.width, width: view.width, height: 85)
+
+        return stackView
+    }()
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -131,6 +188,8 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
     //MARK: - Notification
     @objc func showMusicDetailScreen(_ notification: Notification) {
         if let viewModel = notification.object as? MusicViewModel {
+            self.viewModel = viewModel
+            
             view.layer.opacity = 1
             viewModel.downloadImage {[weak self] image in
                 
@@ -141,6 +200,9 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
                 self?.artistButton.text = viewModel.artist
                 
                 self?.durationSlider.maximumValue = Float(viewModel.music.durationInSeconds)
+                self?.sliderMaximumValueLabel.text = "0\(viewModel.minute)"
+                self?.sliderCurrentValueLabel.text = "00:00"
+                self?.durationSlider.value = 0.0
                 
                 self?.musicBackgroundImageView.setHeight(self?.expandedViewHeight ?? 100)
                 self?.musicBackgroundImageView.setWidth(self?.expandedViewHeight ?? 100)
@@ -153,11 +215,8 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
                     self?.musicBackgroundImageView.addSubview(blurEffectView)
                 }
                 
-                
                 UIView.animate(withDuration: 0.7) {
-                    
                     self?.musicBackgroundImageView.layer.opacity = 0.29
-                    
                 }
             }
             didTapPlayView()
@@ -171,7 +230,6 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
         view.layer.opacity = 0
         view.frame = CGRect(x: 0, y: self.view.height - (foldedViewHeight + 82), width: self.view.width, height: foldedViewHeight)
         
-        view.addSubview(bottomBorder)
         view.addSubview(musicBackgroundImageView)
         
         view.clipsToBounds = true
@@ -197,6 +255,10 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
         view.addSubview(unlikeButton)
         
         view.addSubview(durationSlider)
+        view.addSubview(sliderCurrentValueLabel)
+        view.addSubview(sliderMaximumValueLabel)
+        
+        view.addSubview(playStackView)
     }
     
     //MARK: - Animations
@@ -219,17 +281,19 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
         
         likeButton.layer.opacity = 0
         unlikeButton.layer.opacity = 0
-        durationSlider.layer.opacity = 0
+        
+        
+        sliderCurrentValueLabel.layer.opacity = 0
+        sliderMaximumValueLabel.layer.opacity = 0
     }
     func foldingAnimationSlow(){
-        
-        bottomBorder.backgroundColor = .gray.withAlphaComponent(0.29)
         musicImageView.frame = CGRect(x: 29, y: 14, width: 48, height: 48)
         
+        durationSlider.frame = CGRect(x: 0, y: foldedViewHeight - 1, width: view.width, height: 1)
+        durationSlider.thumbTintColor = .white.withAlphaComponent(0)
+        durationSlider.tintColor = .white
     }
     func expandingAnimationQuick(){
-        bottomBorder.backgroundColor = .gray.withAlphaComponent(0)
-        
         playAndReflectButton.setImage(UIImage(systemName: "dot.radiowaves.up.forward"), for: .normal)
         playAndReflectButton.frame = CGRect(x: view.right - 100, y: 60, width: 35, height: 35)
         nextAndOptionButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
@@ -243,7 +307,6 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
         artistButton.textAlignment = .center
     }
     func expandingAnimationSlow(){
-        
         musicImageView.frame = CGRect(x: 29, y: 129, width: view.width - 58, height: view.width - 58)
         
         musicBackgroundImageView.layer.opacity = 0.29
@@ -251,7 +314,14 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
         
         likeButton.layer.opacity = 1
         unlikeButton.layer.opacity = 1
-        durationSlider.layer.opacity = 1
+        
+        durationSlider.frame = CGRect(x: 29, y: 177 + view.width, width: view.width - 58, height: 35)
+        durationSlider.thumbTintColor = .white
+        durationSlider.tintColor = .white
+        durationSlider.setThumbImage(UIImage(systemName: "circle.fill"), for: .normal)
+        
+        sliderCurrentValueLabel.layer.opacity = 1
+        sliderMaximumValueLabel.layer.opacity = 1
     }
     
     //MARK: - Actions
@@ -301,7 +371,9 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
     }
     
     @objc func didTapPlay(){
-        playAndReflectButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        if playAndReflectButton.image(for: .normal) != UIImage(systemName: "dot.radiowaves.up.forward"){
+            didTapPlayStack(playAndReflectButton)
+        }
     }
     
     @objc func didTapLike(_ sender: UIButton){
@@ -321,6 +393,45 @@ class PlayMusicViewController: UIViewController, MusicSelectedDelegate {
             }
             likeButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
             
+        }
+    }
+    
+    @objc func onChangeSlider(_ sender: UISlider){
+        let currentSecond: Int = Int(sender.value)
+        var secondValue = ""
+        
+        if currentSecond < 10 { secondValue = "00:0\(currentSecond)"}
+        else if currentSecond < 60 { secondValue = "00:\(currentSecond)"}
+        else {secondValue = "0\(Double(sender.value).asStringInMinute(style: .positional))"}
+        
+        sliderCurrentValueLabel.text = secondValue
+        
+        if playAndReflectButton.image(for: .normal) != UIImage(systemName: "dot.radiowaves.up.forward") {
+            playAndReflectButton.setImage(playButton.image(for: .normal), for: .normal)
+        }
+    }
+    
+    @objc func didTapPlayStack(_ sender: UIButton){
+       
+        guard let viewModel = self.viewModel else {return}
+        let durationInSeconds = Float(viewModel.music.durationInSeconds)
+       
+        if sender.image(for: .normal) == UIImage(systemName: "play.fill") {
+            sender.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                if sender.image(for: .normal) == UIImage(systemName: "pause.fill") &&
+                    self.durationSlider.value < durationInSeconds {
+                    self.durationSlider.setValue(self.durationSlider.value + 1, animated:true)
+                    self.onChangeSlider(self.durationSlider)
+                }
+                else {
+                    timer.invalidate()
+                }
+            }
+            
+        }else {
+            sender.setImage(UIImage(systemName: "play.fill"), for: .normal)
         }
     }
 }

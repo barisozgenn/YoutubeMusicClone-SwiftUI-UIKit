@@ -135,6 +135,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF0DF1C82951B86B005BFFBB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				AF4ECBFB29278E8200F70024 /* Extensions */,
+				AF4ECBF629278E5400F70024 /* Utils */,
+				AF4ECBFC29278E9200F70024 /* API */,
+				AF4ECBFA29278E7300F70024 /* Model */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		AF341EEF292E20C900C92A2B /* Music */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +229,7 @@
 		AF4ECBD629278E4A00F70024 = {
 			isa = PBXGroup;
 			children = (
+				AF0DF1C82951B86B005BFFBB /* Shared */,
 				AF4ECBE129278E4A00F70024 /* YoutubeMusicCloneUIKit */,
 				AF4ECBE029278E4A00F70024 /* Products */,
 				AF4ECC47292A59CD00F70024 /* Frameworks */,
@@ -236,13 +248,9 @@
 			isa = PBXGroup;
 			children = (
 				AF4ECBFF29278FC400F70024 /* App */,
-				AF4ECBFA29278E7300F70024 /* Model */,
 				AF4ECBF929278E6D00F70024 /* Views */,
 				AF4ECBF829278E6400F70024 /* ViewModels */,
 				AF4ECBF729278E5C00F70024 /* Controllers */,
-				AF4ECBFC29278E9200F70024 /* API */,
-				AF4ECBFB29278E8200F70024 /* Extensions */,
-				AF4ECBF629278E5400F70024 /* Utils */,
 			);
 			path = YoutubeMusicCloneUIKit;
 			sourceTree = "<group>";

@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF0DF1D02951B8FC005BFFBB /* YoutubeMusicCloneSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DF1CF2951B8FC005BFFBB /* YoutubeMusicCloneSwiftUIApp.swift */; };
+		AF0DF1D72951B8FD005BFFBB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF0DF1D62951B8FD005BFFBB /* Preview Assets.xcassets */; };
+		AF0DF1DD2951B95B005BFFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF4ECBEB29278E4C00F70024 /* Assets.xcassets */; };
+		AF0DF1DE2951B97A005BFFBB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4A57A2292F97E600B8C771 /* UIImage.swift */; };
+		AF0DF1DF2951B97A005BFFBB /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC142927FA0300F70024 /* UIButton.swift */; };
+		AF0DF1E02951B97A005BFFBB /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF341EF3292E247700C92A2B /* Double.swift */; };
+		AF0DF1E12951B97A005BFFBB /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC0A2927A50B00F70024 /* UIColor.swift */; };
+		AF0DF1E22951B97A005BFFBB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC0E2927D06D00F70024 /* UIView.swift */; };
+		AF0DF1E32951B97A005BFFBB /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC122927F9C400F70024 /* UIViewController.swift */; };
+		AF0DF1E42951B97A005BFFBB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC43292A410A00F70024 /* Date.swift */; };
+		AF0DF1E52951B98B005BFFBB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC41292A3DF200F70024 /* Constants.swift */; };
+		AF0DF1E62951B993005BFFBB /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC39292A39E600F70024 /* ImageUploadService.swift */; };
+		AF0DF1E72951B993005BFFBB /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC5A292D398C00F70024 /* MusicService.swift */; };
+		AF0DF1E82951B993005BFFBB /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC3B292A3A0000F70024 /* AuthService.swift */; };
+		AF0DF1E92951B9A2005BFFBB /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC45292A417300F70024 /* AuthCredentials.swift */; };
+		AF0DF1EA2951B9A2005BFFBB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC3F292A3D1700F70024 /* UserModel.swift */; };
+		AF0DF1EB2951B9A5005BFFBB /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC55292D10F900F70024 /* MusicModel.swift */; };
+		AF0DF1EC2951B9A5005BFFBB /* FirebaseFileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC3D292A3A9A00F70024 /* FirebaseFileType.swift */; };
+		AF0DF1ED2951B9A8005BFFBB /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF341EFD292E5FE900C92A2B /* MenuModel.swift */; };
 		AF341EEE292D4B5D00C92A2B /* musics.json in Resources */ = {isa = PBXBuildFile; fileRef = AF341EED292D4B5D00C92A2B /* musics.json */; };
 		AF341EF1292E20D900C92A2B /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF341EF0292E20D900C92A2B /* MusicViewModel.swift */; };
 		AF341EF4292E247700C92A2B /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF341EF3292E247700C92A2B /* Double.swift */; };
@@ -65,6 +84,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF0DF1CD2951B8FC005BFFBB /* YoutubeMusicCloneSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeMusicCloneSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF0DF1CF2951B8FC005BFFBB /* YoutubeMusicCloneSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeMusicCloneSwiftUIApp.swift; sourceTree = "<group>"; };
+		AF0DF1D62951B8FD005BFFBB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AF341EED292D4B5D00C92A2B /* musics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = musics.json; sourceTree = "<group>"; };
 		AF341EF0292E20D900C92A2B /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
 		AF341EF3292E247700C92A2B /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
@@ -120,6 +142,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AF0DF1CA2951B8FC005BFFBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF4ECBDC29278E4A00F70024 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,12 +167,47 @@
 		AF0DF1C82951B86B005BFFBB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				AF0DF1DC2951B930005BFFBB /* Sources */,
 				AF4ECBFB29278E8200F70024 /* Extensions */,
 				AF4ECBF629278E5400F70024 /* Utils */,
 				AF4ECBFC29278E9200F70024 /* API */,
 				AF4ECBFA29278E7300F70024 /* Model */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		AF0DF1CE2951B8FC005BFFBB /* YoutubeMusicCloneSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				AF0DF1DB2951B903005BFFBB /* App */,
+				AF0DF1D52951B8FD005BFFBB /* Preview Content */,
+			);
+			path = YoutubeMusicCloneSwiftUI;
+			sourceTree = "<group>";
+		};
+		AF0DF1D52951B8FD005BFFBB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AF0DF1D62951B8FD005BFFBB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AF0DF1DB2951B903005BFFBB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AF0DF1CF2951B8FC005BFFBB /* YoutubeMusicCloneSwiftUIApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AF0DF1DC2951B930005BFFBB /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AF4ECC37292A368300F70024 /* GoogleService-Info.plist */,
+				AF4ECBEB29278E4C00F70024 /* Assets.xcassets */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		AF341EEF292E20C900C92A2B /* Music */ = {
@@ -231,6 +295,7 @@
 			children = (
 				AF0DF1C82951B86B005BFFBB /* Shared */,
 				AF4ECBE129278E4A00F70024 /* YoutubeMusicCloneUIKit */,
+				AF0DF1CE2951B8FC005BFFBB /* YoutubeMusicCloneSwiftUI */,
 				AF4ECBE029278E4A00F70024 /* Products */,
 				AF4ECC47292A59CD00F70024 /* Frameworks */,
 			);
@@ -240,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				AF4ECBDF29278E4A00F70024 /* YoutubeMusicCloneUIKit.app */,
+				AF0DF1CD2951B8FC005BFFBB /* YoutubeMusicCloneSwiftUI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,9 +398,7 @@
 				AF4ECBE229278E4A00F70024 /* AppDelegate.swift */,
 				AF4ECBE429278E4B00F70024 /* SceneDelegate.swift */,
 				AF4ECBED29278E4C00F70024 /* LaunchScreen.storyboard */,
-				AF4ECBEB29278E4C00F70024 /* Assets.xcassets */,
 				AF4ECBF029278E4C00F70024 /* Info.plist */,
-				AF4ECC37292A368300F70024 /* GoogleService-Info.plist */,
 				AF341EED292D4B5D00C92A2B /* musics.json */,
 			);
 			path = App;
@@ -380,6 +444,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AF0DF1CC2951B8FC005BFFBB /* YoutubeMusicCloneSwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF0DF1D82951B8FD005BFFBB /* Build configuration list for PBXNativeTarget "YoutubeMusicCloneSwiftUI" */;
+			buildPhases = (
+				AF0DF1C92951B8FC005BFFBB /* Sources */,
+				AF0DF1CA2951B8FC005BFFBB /* Frameworks */,
+				AF0DF1CB2951B8FC005BFFBB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YoutubeMusicCloneSwiftUI;
+			productName = YoutubeMusicCloneSwiftUI;
+			productReference = AF0DF1CD2951B8FC005BFFBB /* YoutubeMusicCloneSwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
 		AF4ECBDE29278E4A00F70024 /* YoutubeMusicCloneUIKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF4ECBF329278E4C00F70024 /* Build configuration list for PBXNativeTarget "YoutubeMusicCloneUIKit" */;
@@ -414,6 +495,9 @@
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
+					AF0DF1CC2951B8FC005BFFBB = {
+						CreatedOnToolsVersion = 14.1;
+					};
 					AF4ECBDE29278E4A00F70024 = {
 						CreatedOnToolsVersion = 14.1;
 					};
@@ -436,11 +520,21 @@
 			projectRoot = "";
 			targets = (
 				AF4ECBDE29278E4A00F70024 /* YoutubeMusicCloneUIKit */,
+				AF0DF1CC2951B8FC005BFFBB /* YoutubeMusicCloneSwiftUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AF0DF1CB2951B8FC005BFFBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF0DF1DD2951B95B005BFFBB /* Assets.xcassets in Resources */,
+				AF0DF1D72951B8FD005BFFBB /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF4ECBDD29278E4A00F70024 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -455,6 +549,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AF0DF1C92951B8FC005BFFBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF0DF1E32951B97A005BFFBB /* UIViewController.swift in Sources */,
+				AF0DF1D02951B8FC005BFFBB /* YoutubeMusicCloneSwiftUIApp.swift in Sources */,
+				AF0DF1DE2951B97A005BFFBB /* UIImage.swift in Sources */,
+				AF0DF1E82951B993005BFFBB /* AuthService.swift in Sources */,
+				AF0DF1EC2951B9A5005BFFBB /* FirebaseFileType.swift in Sources */,
+				AF0DF1ED2951B9A8005BFFBB /* MenuModel.swift in Sources */,
+				AF0DF1E72951B993005BFFBB /* MusicService.swift in Sources */,
+				AF0DF1E92951B9A2005BFFBB /* AuthCredentials.swift in Sources */,
+				AF0DF1E42951B97A005BFFBB /* Date.swift in Sources */,
+				AF0DF1E02951B97A005BFFBB /* Double.swift in Sources */,
+				AF0DF1EB2951B9A5005BFFBB /* MusicModel.swift in Sources */,
+				AF0DF1EA2951B9A2005BFFBB /* UserModel.swift in Sources */,
+				AF0DF1DF2951B97A005BFFBB /* UIButton.swift in Sources */,
+				AF0DF1E22951B97A005BFFBB /* UIView.swift in Sources */,
+				AF0DF1E12951B97A005BFFBB /* UIColor.swift in Sources */,
+				AF0DF1E62951B993005BFFBB /* ImageUploadService.swift in Sources */,
+				AF0DF1E52951B98B005BFFBB /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF4ECBDB29278E4A00F70024 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -522,6 +640,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AF0DF1D92951B8FD005BFFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"YoutubeMusicCloneSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = SHP38F3EM7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = barisozgen.YoutubeMusicCloneSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AF0DF1DA2951B8FD005BFFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"YoutubeMusicCloneSwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = SHP38F3EM7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = barisozgen.YoutubeMusicCloneSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		AF4ECBF129278E4C00F70024 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -695,6 +871,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AF0DF1D82951B8FD005BFFBB /* Build configuration list for PBXNativeTarget "YoutubeMusicCloneSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF0DF1D92951B8FD005BFFBB /* Debug */,
+				AF0DF1DA2951B8FD005BFFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AF4ECBDA29278E4A00F70024 /* Build configuration list for PBXProject "YoutubeMusicCloneUIKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

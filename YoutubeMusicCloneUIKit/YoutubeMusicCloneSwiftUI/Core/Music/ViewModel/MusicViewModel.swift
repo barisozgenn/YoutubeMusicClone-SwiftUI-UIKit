@@ -13,7 +13,11 @@ class MusicViewModel: ObservableObject {
     
     // MARK: - Properties
     @Published var selectedMusic: MusicModel?
+    @Published var headerCategories: [String] = []
     
+    init(){
+        headerCategories = fetchCategories()
+    }
     // MARK: - API
     
     func downloadImage(music: MusicModel,completion: @escaping(_ image: UIImage) -> ()) {
@@ -26,5 +30,9 @@ class MusicViewModel: ObservableObject {
             
              completion(uiImage)
         }
+    }
+    
+   private func fetchCategories() -> [String] {
+        return ["relax","energize","focus","workout","commute","baris","ozgen"]
     }
 }

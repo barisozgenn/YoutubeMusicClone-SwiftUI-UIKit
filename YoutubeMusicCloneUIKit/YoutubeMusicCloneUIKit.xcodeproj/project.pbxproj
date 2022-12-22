@@ -91,6 +91,7 @@
 		AFCE898B29542EC1006AA8EC /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898A29542EC1006AA8EC /* FirebaseFunctions */; };
 		AFCE898D29542EC1006AA8EC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898C29542EC1006AA8EC /* FirebaseStorage */; };
 		AFCE898F2954442D006AA8EC /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCE898E2954442D006AA8EC /* HeaderView.swift */; };
+		AFCE89902954498E006AA8EC /* musics.json in Resources */ = {isa = PBXBuildFile; fileRef = AF341EED292D4B5D00C92A2B /* musics.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -225,6 +226,7 @@
 		AF0DF1DC2951B930005BFFBB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				AF341EED292D4B5D00C92A2B /* musics.json */,
 				AF4ECC37292A368300F70024 /* GoogleService-Info.plist */,
 				AF4ECBEB29278E4C00F70024 /* Assets.xcassets */,
 			);
@@ -480,7 +482,6 @@
 				AF4ECBE429278E4B00F70024 /* SceneDelegate.swift */,
 				AF4ECBED29278E4C00F70024 /* LaunchScreen.storyboard */,
 				AF4ECBF029278E4C00F70024 /* Info.plist */,
-				AF341EED292D4B5D00C92A2B /* musics.json */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -620,6 +621,7 @@
 			files = (
 				AF0DF1DD2951B95B005BFFBB /* Assets.xcassets in Resources */,
 				AF0DF1D72951B8FD005BFFBB /* Preview Assets.xcassets in Resources */,
+				AFCE89902954498E006AA8EC /* musics.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

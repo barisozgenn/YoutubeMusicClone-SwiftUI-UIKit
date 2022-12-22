@@ -22,7 +22,7 @@ struct HeaderView: View {
             
             Spacer()
             
-            HStack(spacing: 20){
+            HStack(spacing: 24){
                 
                 Image(systemName: "dot.radiowaves.up.forward")
                     .resizable()

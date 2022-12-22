@@ -90,6 +90,7 @@
 		AFCE898929542EC1006AA8EC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898829542EC1006AA8EC /* FirebaseFirestoreSwift */; };
 		AFCE898B29542EC1006AA8EC /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898A29542EC1006AA8EC /* FirebaseFunctions */; };
 		AFCE898D29542EC1006AA8EC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898C29542EC1006AA8EC /* FirebaseStorage */; };
+		AFCE898F2954442D006AA8EC /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCE898E2954442D006AA8EC /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +153,7 @@
 		AF4ECC55292D10F900F70024 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		AF4ECC5A292D398C00F70024 /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
 		AFCE898229542E59006AA8EC /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
+		AFCE898E2954442D006AA8EC /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				AFCE898229542E59006AA8EC /* MusicView.swift */,
+				AFCE898E2954442D006AA8EC /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				AFCE898329542E59006AA8EC /* MusicView.swift in Sources */,
 				AF0DF1EC2951B9A5005BFFBB /* FirebaseFileType.swift in Sources */,
 				AF0DF1ED2951B9A8005BFFBB /* MenuModel.swift in Sources */,
+				AFCE898F2954442D006AA8EC /* HeaderView.swift in Sources */,
 				AF0DF1E72951B993005BFFBB /* MusicService.swift in Sources */,
 				AF0DF1E92951B9A2005BFFBB /* AuthCredentials.swift in Sources */,
 				AF0DF1E42951B97A005BFFBB /* Date.swift in Sources */,

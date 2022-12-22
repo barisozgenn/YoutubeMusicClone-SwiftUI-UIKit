@@ -17,6 +17,13 @@ struct MusicView: View {
                     .opacity(0.92)
                 Spacer()
             }
+            
+            VStack{
+                HeaderView()
+                Spacer()
+            }
+            .padding(.horizontal)
+            
             Text("Hello")
         }
         .preferredColorScheme(.dark)

@@ -11,7 +11,7 @@ import SwiftUI
 struct YoutubeMusicCloneSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

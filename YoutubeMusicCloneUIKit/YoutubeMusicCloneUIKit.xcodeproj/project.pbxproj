@@ -84,6 +84,12 @@
 		AF4ECC54292CB77800F70024 /* MusicHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC53292CB77800F70024 /* MusicHeader.swift */; };
 		AF4ECC56292D10F900F70024 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC55292D10F900F70024 /* MusicModel.swift */; };
 		AF4ECC5B292D398C00F70024 /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC5A292D398C00F70024 /* MusicService.swift */; };
+		AFCE898329542E59006AA8EC /* MusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCE898229542E59006AA8EC /* MusicView.swift */; };
+		AFCE898529542EC1006AA8EC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898429542EC1006AA8EC /* FirebaseAuth */; };
+		AFCE898729542EC1006AA8EC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898629542EC1006AA8EC /* FirebaseFirestore */; };
+		AFCE898929542EC1006AA8EC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898829542EC1006AA8EC /* FirebaseFirestoreSwift */; };
+		AFCE898B29542EC1006AA8EC /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898A29542EC1006AA8EC /* FirebaseFunctions */; };
+		AFCE898D29542EC1006AA8EC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898C29542EC1006AA8EC /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +151,7 @@
 		AF4ECC53292CB77800F70024 /* MusicHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHeader.swift; sourceTree = "<group>"; };
 		AF4ECC55292D10F900F70024 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		AF4ECC5A292D398C00F70024 /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
+		AFCE898229542E59006AA8EC /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +159,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFCE898529542EC1006AA8EC /* FirebaseAuth in Frameworks */,
+				AFCE898729542EC1006AA8EC /* FirebaseFirestore in Frameworks */,
+				AFCE898929542EC1006AA8EC /* FirebaseFirestoreSwift in Frameworks */,
+				AFCE898D29542EC1006AA8EC /* FirebaseStorage in Frameworks */,
+				AFCE898B29542EC1006AA8EC /* FirebaseFunctions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +258,7 @@
 		AF0DF1F22951BA34005BFFBB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AFCE898229542E59006AA8EC /* MusicView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -522,6 +535,13 @@
 			dependencies = (
 			);
 			name = YoutubeMusicCloneSwiftUI;
+			packageProductDependencies = (
+				AFCE898429542EC1006AA8EC /* FirebaseAuth */,
+				AFCE898629542EC1006AA8EC /* FirebaseFirestore */,
+				AFCE898829542EC1006AA8EC /* FirebaseFirestoreSwift */,
+				AFCE898A29542EC1006AA8EC /* FirebaseFunctions */,
+				AFCE898C29542EC1006AA8EC /* FirebaseStorage */,
+			);
 			productName = YoutubeMusicCloneSwiftUI;
 			productReference = AF0DF1CD2951B8FC005BFFBB /* YoutubeMusicCloneSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -622,6 +642,7 @@
 				AF0DF1D02951B8FC005BFFBB /* YoutubeMusicCloneSwiftUIApp.swift in Sources */,
 				AF0DF1DE2951B97A005BFFBB /* UIImage.swift in Sources */,
 				AF0DF1E82951B993005BFFBB /* AuthService.swift in Sources */,
+				AFCE898329542E59006AA8EC /* MusicView.swift in Sources */,
 				AF0DF1EC2951B9A5005BFFBB /* FirebaseFileType.swift in Sources */,
 				AF0DF1ED2951B9A8005BFFBB /* MenuModel.swift in Sources */,
 				AF0DF1E72951B993005BFFBB /* MusicService.swift in Sources */,
@@ -1004,6 +1025,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AF4ECC2E292A349000F70024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		AFCE898429542EC1006AA8EC /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF4ECC2E292A349000F70024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		AFCE898629542EC1006AA8EC /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF4ECC2E292A349000F70024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		AFCE898829542EC1006AA8EC /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF4ECC2E292A349000F70024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		AFCE898A29542EC1006AA8EC /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF4ECC2E292A349000F70024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		AFCE898C29542EC1006AA8EC /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF4ECC2E292A349000F70024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

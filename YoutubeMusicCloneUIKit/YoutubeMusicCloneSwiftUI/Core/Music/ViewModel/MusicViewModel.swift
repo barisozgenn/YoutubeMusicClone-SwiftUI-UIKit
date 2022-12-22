@@ -6,16 +6,17 @@
 //
 
 import Firebase
+import UIKit
+import FirebaseStorage
+
 class MusicViewModel: ObservableObject {
     
     // MARK: - Properties
-    @Published var musics: [MusicModel] = []
-    @Published var selectedMusic: MusicModel = nil
+    @Published var selectedMusic: MusicModel?
     
     // MARK: - API
     
-    
-    func downloadImage(completion: @escaping(_ image: UIImage) -> ()) {
+    func downloadImage(music: MusicModel,completion: @escaping(_ image: UIImage) -> ()) {
         let ref = Storage.storage().reference(withPath: "\(FirebaseFileType.musicImage.folderName)\(music.imageUrl)")
         
         ref.getData(maxSize: 1 * 1024 * 1024) { data, _ in

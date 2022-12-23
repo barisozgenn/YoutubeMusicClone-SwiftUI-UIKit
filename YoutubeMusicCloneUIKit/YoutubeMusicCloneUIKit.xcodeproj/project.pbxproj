@@ -86,6 +86,8 @@
 		AF4ECC5B292D398C00F70024 /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC5A292D398C00F70024 /* MusicService.swift */; };
 		AFC5818F2955BD6D0054618E /* PlayMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC5818E2955BD6D0054618E /* PlayMusicView.swift */; };
 		AFC581912955D92D0054618E /* SwiftUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC581902955D92D0054618E /* SwiftUISlider.swift */; };
+		AFC58193295642700054618E /* WideMusicCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC58192295642700054618E /* WideMusicCellView.swift */; };
+		AFC58195295645090054618E /* RectMusicCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC58194295645090054618E /* RectMusicCellView.swift */; };
 		AFCE898329542E59006AA8EC /* MusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCE898229542E59006AA8EC /* MusicView.swift */; };
 		AFCE898529542EC1006AA8EC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898429542EC1006AA8EC /* FirebaseAuth */; };
 		AFCE898729542EC1006AA8EC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898629542EC1006AA8EC /* FirebaseFirestore */; };
@@ -157,6 +159,8 @@
 		AF4ECC5A292D398C00F70024 /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
 		AFC5818E2955BD6D0054618E /* PlayMusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMusicView.swift; sourceTree = "<group>"; };
 		AFC581902955D92D0054618E /* SwiftUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISlider.swift; sourceTree = "<group>"; };
+		AFC58192295642700054618E /* WideMusicCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideMusicCellView.swift; sourceTree = "<group>"; };
+		AFC58194295645090054618E /* RectMusicCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectMusicCellView.swift; sourceTree = "<group>"; };
 		AFCE898229542E59006AA8EC /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
 		AFCE898E2954442D006AA8EC /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,6 +274,8 @@
 				AFCE898E2954442D006AA8EC /* HeaderView.swift */,
 				AFC5818E2955BD6D0054618E /* PlayMusicView.swift */,
 				AFC581902955D92D0054618E /* SwiftUISlider.swift */,
+				AFC58192295642700054618E /* WideMusicCellView.swift */,
+				AFC58194295645090054618E /* RectMusicCellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -649,11 +655,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFC58195295645090054618E /* RectMusicCellView.swift in Sources */,
 				AF0DF1E32951B97A005BFFBB /* UIViewController.swift in Sources */,
 				AF0DF1D02951B8FC005BFFBB /* YoutubeMusicCloneSwiftUIApp.swift in Sources */,
 				AF0DF1DE2951B97A005BFFBB /* UIImage.swift in Sources */,
 				AF0DF1E82951B993005BFFBB /* AuthService.swift in Sources */,
 				AFCE898329542E59006AA8EC /* MusicView.swift in Sources */,
+				AFC58193295642700054618E /* WideMusicCellView.swift in Sources */,
 				AF0DF1EC2951B9A5005BFFBB /* FirebaseFileType.swift in Sources */,
 				AF0DF1ED2951B9A8005BFFBB /* MenuModel.swift in Sources */,
 				AFCE898F2954442D006AA8EC /* HeaderView.swift in Sources */,

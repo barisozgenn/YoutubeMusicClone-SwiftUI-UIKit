@@ -20,6 +20,13 @@ struct MusicView: View {
                 quickPickView
                 Spacer()
             }
+            
+            VStack{
+                Spacer()
+                PlayMusicView(currentSecond: 0)
+                    .padding(.bottom,7)
+            }
+            .ignoresSafeArea()
         }
         .preferredColorScheme(.dark)
     }

@@ -10,7 +10,7 @@ import SwiftUI
 struct PlayMusicView: View {
     @State var currentSecond = 0.0
     @State private var totalSecond = 129.0
-    @State private var isExpanded = true
+    @State private var isExpanded = false
     private let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     @State private var isMusicPlaying = false
     
@@ -38,7 +38,7 @@ extension PlayMusicView {
                 .resizable()
                 .frame(width: .infinity)
                 .blur(radius: 34)
-                .opacity(!isExpanded ? 0 : 0.7)
+                .opacity(!isExpanded ? 0 : 0.5)
         }
         .ignoresSafeArea(.all)
         .background(Color.theme.tabBarBackgroundColor)

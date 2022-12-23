@@ -11,6 +11,7 @@ struct PlayMusicView: View {
     @State private var currentSecond = 0.0
     @State private var totalSecond = 129.0
     @State private var isPlayEditing = false
+    @State var isExpanded = true
     
     var body: some View {
         ZStack{
@@ -21,10 +22,12 @@ struct PlayMusicView: View {
                 musicSlider
                 musicControlButton
                 Spacer()
+                    .scaleEffect(isExpanded ? 1 : 0)
             }
             .padding()
             .padding(.horizontal)
         }
+        .frame(height: isExpanded ? .infinity : 77)
         
     }
 }
@@ -35,7 +38,7 @@ extension PlayMusicView {
                 .resizable()
                 .frame(width: .infinity)
                 .blur(radius: 34)
-                .opacity(0.7)
+                .opacity(!isExpanded ? 0 : 0.7)
         }
         .ignoresSafeArea(.all)
         .background(Color.theme.tabBarBackgroundColor)
@@ -46,6 +49,7 @@ extension PlayMusicView {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 14)
+                .onTapGesture {withAnimation(.spring()){isExpanded.toggle()}}
             Spacer()
             Image(systemName: "dot.radiowaves.up.forward")
                 .resizable()
@@ -56,45 +60,67 @@ extension PlayMusicView {
                 .scaledToFit()
                 .frame(height: 22)
         }
+        .frame(height: isExpanded ? 22 : 0)
         .foregroundColor(.white)
+        .opacity(!isExpanded ? 0 : 1)
+        .scaleEffect(!isExpanded ? 0 : 1)
     }
     private var musicImageView: some View {
-        VStack{
+        layout{
             Image("profile-photo")
                 .resizable()
                 .scaledToFit()
-                .frame(width: .infinity)
+                .frame(width: !isExpanded ? 64 : .infinity)
                 .cornerRadius(7)
-                .padding(.top, 34)
+                .padding(.top, isExpanded ? 34 : 0)
+                .onTapGesture {withAnimation(.spring()){isExpanded.toggle()}}
+            
             HStack{
                 Image(systemName: "hand.thumbsdown")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 27)
+                    .frame(width: isExpanded ? 27 : 0, height: isExpanded ? 27 : 0)
                     .foregroundColor(Color(.systemGray2))
-                Spacer()
-                VStack{
+                    .opacity(!isExpanded ? 0 : 1)
+                    .scaleEffect(!isExpanded ? 0 : 1)
+                if isExpanded{ Spacer() }
+                VStack(alignment: isExpanded ? .center : .leading, spacing: isExpanded ? 7 : 2){
                     Text("SwiftUI")
-                        .font(.system(size: 38))
-                        .fontWeight(.heavy)
+                        .font(.system(size: isExpanded ? 38 : 29))
+                        .fontWeight(isExpanded ? .heavy : .bold)
                         .foregroundColor(.white)
                     Text("Baris Ozgen")
                         .font(.system(size: 19))
                         .fontWeight(.regular)
                         .foregroundColor(Color(.systemGray2))
                 }
-                .padding(.top)
                 Spacer()
                 Image(systemName: "hand.thumbsup")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 27)
+                    .frame(width: isExpanded ? 27 : 0, height: isExpanded ? 27 : 0)
                     .foregroundColor(Color(.systemGray2))
+                    .opacity(!isExpanded ? 0 : 1)
+                    .scaleEffect(!isExpanded ? 0 : 1)
+                
+                HStack(spacing: 29){
+                    Image(systemName: "play.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 22)
+                    Image(systemName: "forward.end.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 22)
+                }
+                .foregroundColor(.white)
+                .scaleEffect(isExpanded ? 0 : 1)
+                .frame(width: isExpanded ? 0 : 74, height: isExpanded ? 0 : 22)
+                
             }
-            
+            .padding(.top, isExpanded ? 29 : 0)
         }
     }
-    
     private var musicSlider: some View {
         VStack{
             durationSlider
@@ -103,13 +129,14 @@ extension PlayMusicView {
                 Spacer()
                 Text(setDurationInSecond(second: totalSecond))
             }
+            .scaleEffect(isExpanded ? 1 : 0)
             .font(.system(size: 16))
             .fontWeight(.semibold)
             .foregroundColor(Color(.systemGray2))
         }
-        .padding(.top,14)
+        .padding(.top, isExpanded ? 14 : -14)
+        .padding(.horizontal, isExpanded ? 0 : -29)
     }
-    
     private var musicControlButton: some View {
         VStack{
             
@@ -145,8 +172,9 @@ extension PlayMusicView {
             .foregroundColor(Color(.systemGray5))
         }
         .padding(.top,14)
+        .opacity(!isExpanded ? 0 : 1)
+        .scaleEffect(!isExpanded ? 0 : 1)
     }
-    
     private var durationSlider: some View {
         Slider(
             value: $currentSecond,
@@ -168,6 +196,9 @@ extension PlayMusicView {
         else {secondValue = "0\(Double(secondInt).asStringInMinute(style: .positional))"}
         
         return secondValue
+    }
+    private var layout: AnyLayout {
+        return isExpanded ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout())
     }
 }
 struct PlayMusicView_Previews: PreviewProvider {

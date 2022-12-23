@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct PlayMusicView: View {
-    @State private var currentSecond = 0.0
+    @State var currentSecond = 0.0
     @State private var totalSecond = 129.0
-    @State private var isPlayEditing = false
-    @State var isExpanded = true
+    @State private var isExpanded = true
+    private let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
+    @State private var isMusicPlaying = false
     
     var body: some View {
         ZStack{
@@ -28,7 +29,6 @@ struct PlayMusicView: View {
             .padding(.horizontal)
         }
         .frame(height: isExpanded ? .infinity : 77)
-        
     }
 }
 extension PlayMusicView {
@@ -49,7 +49,11 @@ extension PlayMusicView {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 14)
-                .onTapGesture {withAnimation(.spring()){isExpanded.toggle()}}
+                .onTapGesture {
+                    withAnimation(.spring()){
+                        isExpanded.toggle()
+                    }
+                }
             Spacer()
             Image(systemName: "dot.radiowaves.up.forward")
                 .resizable()
@@ -73,7 +77,11 @@ extension PlayMusicView {
                 .frame(width: !isExpanded ? 64 : .infinity)
                 .cornerRadius(7)
                 .padding(.top, isExpanded ? 34 : 0)
-                .onTapGesture {withAnimation(.spring()){isExpanded.toggle()}}
+                .onTapGesture {
+                    withAnimation(.spring()){
+                        isExpanded.toggle()
+                    }
+                }
             
             HStack{
                 Image(systemName: "hand.thumbsdown")
@@ -104,10 +112,15 @@ extension PlayMusicView {
                     .scaleEffect(!isExpanded ? 0 : 1)
                 
                 HStack(spacing: 29){
-                    Image(systemName: "play.fill")
+                    Image(systemName: isMusicPlaying ?  "pause.fill" : "play.fill")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 22)
+                        .onTapGesture {
+                            withAnimation(.spring()){
+                                isMusicPlaying.toggle()
+                            }
+                        }
                     Image(systemName: "forward.end.fill")
                         .resizable()
                         .scaledToFit()
@@ -151,13 +164,18 @@ extension PlayMusicView {
                     .scaledToFit()
                     .frame(height: 22)
                 Spacer()
-                Image(systemName: "play.fill")
+                Image(systemName: isMusicPlaying ?  "pause.fill" : "play.fill")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 27, height: 27)
                     .padding(34)
                     .background(.white.opacity(0.14))
                     .clipShape(Circle())
+                    .onTapGesture {
+                        withAnimation(.spring()){
+                            isMusicPlaying.toggle()
+                        }
+                    }
                 Spacer()
                 Image(systemName: "forward.end.fill")
                     .resizable()
@@ -176,15 +194,26 @@ extension PlayMusicView {
         .scaleEffect(!isExpanded ? 0 : 1)
     }
     private var durationSlider: some View {
-        Slider(
-            value: $currentSecond,
-            in: 0...totalSecond,
-            onEditingChanged: { editing in
-                isPlayEditing = editing
-            }
-        )
-        .tint(.white)
-        
+        ZStack{
+            SwiftUISlider(
+                thumbColor: .constant(.clear),
+                    minTrackColor: .white,
+                maxTrackColor: .darkGray,
+                    value: $currentSecond,
+                    maxValue: $totalSecond
+                  )
+            SwiftUISlider(
+                thumbColor: .constant(.white),
+                    minTrackColor: .white,
+                maxTrackColor: .darkGray,
+                    value: $currentSecond,
+                    maxValue: $totalSecond
+                  )
+            .opacity(isExpanded ? 1 : 0)
+        }
+        .onReceive(timer) { _ in
+                currentSecond += isMusicPlaying ? 1 : 0
+        }
     }
     
     func setDurationInSecond(second:Double) -> String{

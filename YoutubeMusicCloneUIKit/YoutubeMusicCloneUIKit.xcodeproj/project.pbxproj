@@ -85,6 +85,7 @@
 		AF4ECC56292D10F900F70024 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC55292D10F900F70024 /* MusicModel.swift */; };
 		AF4ECC5B292D398C00F70024 /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC5A292D398C00F70024 /* MusicService.swift */; };
 		AFC5818F2955BD6D0054618E /* PlayMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC5818E2955BD6D0054618E /* PlayMusicView.swift */; };
+		AFC581912955D92D0054618E /* SwiftUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC581902955D92D0054618E /* SwiftUISlider.swift */; };
 		AFCE898329542E59006AA8EC /* MusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCE898229542E59006AA8EC /* MusicView.swift */; };
 		AFCE898529542EC1006AA8EC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898429542EC1006AA8EC /* FirebaseAuth */; };
 		AFCE898729542EC1006AA8EC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AFCE898629542EC1006AA8EC /* FirebaseFirestore */; };
@@ -155,6 +156,7 @@
 		AF4ECC55292D10F900F70024 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		AF4ECC5A292D398C00F70024 /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
 		AFC5818E2955BD6D0054618E /* PlayMusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMusicView.swift; sourceTree = "<group>"; };
+		AFC581902955D92D0054618E /* SwiftUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISlider.swift; sourceTree = "<group>"; };
 		AFCE898229542E59006AA8EC /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
 		AFCE898E2954442D006AA8EC /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,6 +269,7 @@
 				AFCE898229542E59006AA8EC /* MusicView.swift */,
 				AFCE898E2954442D006AA8EC /* HeaderView.swift */,
 				AFC5818E2955BD6D0054618E /* PlayMusicView.swift */,
+				AFC581902955D92D0054618E /* SwiftUISlider.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				AF0DF1DF2951B97A005BFFBB /* UIButton.swift in Sources */,
 				AFC5818F2955BD6D0054618E /* PlayMusicView.swift in Sources */,
 				AF0DF1E22951B97A005BFFBB /* UIView.swift in Sources */,
+				AFC581912955D92D0054618E /* SwiftUISlider.swift in Sources */,
 				AF0DF1E12951B97A005BFFBB /* UIColor.swift in Sources */,
 				AF0DF1E62951B993005BFFBB /* ImageUploadService.swift in Sources */,
 				AF0DF1E52951B98B005BFFBB /* Constants.swift in Sources */,

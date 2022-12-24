@@ -18,7 +18,7 @@ extension RectMusicCellView{
             Image("profile-photo")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 172)
+                .frame(width: 120, height: 120)
                 .cornerRadius(7)
                 .onTapGesture {
                     withAnimation(.spring()){
@@ -26,9 +26,11 @@ extension RectMusicCellView{
                     }
                 }
             Text("SwiftUI")
-                .font(.system(size: 24))
+                .font(.system(size: 20))
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
+                .frame(width: 120, height: 20,alignment: .leading)
+                .lineLimit(1)
         }
     }
 }

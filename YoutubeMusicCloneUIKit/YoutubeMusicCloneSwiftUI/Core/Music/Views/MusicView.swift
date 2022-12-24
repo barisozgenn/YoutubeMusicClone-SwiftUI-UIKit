@@ -9,6 +9,17 @@ import SwiftUI
 
 struct MusicView: View {
     @StateObject var viewModel = MusicViewModel()
+    let data = (1...100).map { "Item \($0)" }
+    let rows = [
+        GridItem(.fixed(65)),
+        GridItem(.fixed(65)),
+        GridItem(.fixed(65)),
+        GridItem(.fixed(65))
+    ]
+    let rowsRect = [
+        GridItem(.fixed(143)),
+        GridItem(.fixed(143))
+    ]
     
     var body: some View {
         ZStack{
@@ -17,8 +28,11 @@ struct MusicView: View {
             
             VStack{
                 categoryView
-                quickPickView
-                Spacer()
+                ScrollView{
+                    quickPickView
+                    listenAgainView
+                    Spacer()
+                } 
             }
             
             VStack{
@@ -77,18 +91,71 @@ extension MusicView {
             HStack{
                 Text("start radio from a song".uppercased())
                     .foregroundColor(.gray)
-                    .font(.caption)
+                    .font(.headline)
                 Spacer()
             }
+            .padding(.horizontal)
+            .padding(.top)
             HStack{
                 Text("Quick picks")
                     .foregroundColor(.white)
-                    .font(.title2)
+                    .font(.title)
                     .fontWeight(.heavy)
                 Spacer()
             }
+            .padding(.horizontal)
+            
+            quickPickListView
         }
-        .padding()
+        .frame(height: 300)
+    }
+    private var quickPickListView: some View {
+        GeometryReader { prox in
+            ScrollView(.horizontal,showsIndicators: false){
+                LazyHGrid(rows: rows, spacing: 0) {
+                    ForEach(data, id: \.self) { item in
+                        WideMusicCellView()
+                            .frame(width: prox.size.width - 58)
+                            .padding(.leading, 14)
+                    }
+                }
+            }
+            .frame(maxHeight: 300)
+        }
+    }
+    private var listenAgainView: some View{
+        VStack{
+            HStack{
+                Text("Listen Again")
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .fontWeight(.heavy)
+                Spacer()
+                Text("More")
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .fontWeight(.heavy)
+            }
+            .padding(.horizontal)
+            .padding(.top,80)
+            listenAgainListView
+        }
+        .frame(maxHeight: 500)
+    }
+    private var listenAgainListView: some View {
+        GeometryReader { prox in
+            ScrollView(.horizontal,showsIndicators: false){
+                LazyHGrid(rows: rowsRect, spacing: 0) {
+                    ForEach(data, id: \.self) { item in
+                        RectMusicCellView()
+                            .frame(width: 140)
+                            .padding(.leading, -7)
+                    }
+                }
+            }
+            .padding(.leading, 7)
+            .frame(maxHeight: 400)
+        }
     }
 }
 struct MusicView_Previews: PreviewProvider {

@@ -18,7 +18,7 @@ extension WideMusicCellView{
             Image("profile-photo")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 72)
+                .frame(width: 64, height: 64)
                 .cornerRadius(7)
                 .onTapGesture {
                     withAnimation(.spring()){
@@ -29,11 +29,11 @@ extension WideMusicCellView{
             HStack{
                 VStack(alignment: .leading,spacing:7){
                     Text("SwiftUI")
-                        .font(.system(size: 24))
+                        .font(.system(size: 20))
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                     Text("Baris Ozgen")
-                        .font(.system(size: 22))
+                        .font(.system(size: 18))
                         .fontWeight(.regular)
                         .foregroundColor(Color(.lightGray))
                 }
@@ -49,7 +49,7 @@ extension WideMusicCellView{
                         .resizable()
                         .scaledToFit()
                 }
-                .frame(width: 7)
+                .frame(width: 5)
                 .foregroundColor(.white)
             }
             .padding(.leading)

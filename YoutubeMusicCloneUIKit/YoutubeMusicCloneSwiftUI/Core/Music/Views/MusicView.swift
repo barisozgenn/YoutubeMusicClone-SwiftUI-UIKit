@@ -9,7 +9,12 @@ import SwiftUI
 
 struct MusicView: View {
     @StateObject var viewModel = MusicViewModel()
-    let data = (1...100).map { "Item \($0)" }
+    @State private var selectedMusic : MusicModel
+    
+    init() {
+        selectedMusic = self.viewModel.musics.first!
+    }
+    
     let rows = [
         GridItem(.fixed(65)),
         GridItem(.fixed(65)),
@@ -32,7 +37,7 @@ struct MusicView: View {
                     quickPickView
                     listenAgainView
                     Spacer()
-                } 
+                }
             }
             
             VStack{
@@ -113,8 +118,8 @@ extension MusicView {
         GeometryReader { prox in
             ScrollView(.horizontal,showsIndicators: false){
                 LazyHGrid(rows: rows, spacing: 0) {
-                    ForEach(data, id: \.self) { item in
-                        WideMusicCellView()
+                    ForEach(viewModel.musics) { item in
+                        WideMusicCellView(selectedMusic: $selectedMusic, music: item)
                             .frame(width: prox.size.width - 58)
                             .padding(.leading, 14)
                     }
@@ -131,10 +136,18 @@ extension MusicView {
                     .font(.title)
                     .fontWeight(.heavy)
                 Spacer()
+                
                 Text("More")
                     .foregroundColor(.white)
                     .font(.headline)
                     .fontWeight(.heavy)
+                    .padding(.vertical,4)
+                    .padding(.horizontal,10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(.white, lineWidth: 1)
+                    )
+                
             }
             .padding(.horizontal)
             .padding(.top,80)
@@ -146,8 +159,8 @@ extension MusicView {
         GeometryReader { prox in
             ScrollView(.horizontal,showsIndicators: false){
                 LazyHGrid(rows: rowsRect, spacing: 0) {
-                    ForEach(data, id: \.self) { item in
-                        RectMusicCellView()
+                    ForEach(viewModel.musics) { item in
+                        RectMusicCellView(selectedMusic: $selectedMusic, music: item)
                             .frame(width: 140)
                             .padding(.leading, -7)
                     }

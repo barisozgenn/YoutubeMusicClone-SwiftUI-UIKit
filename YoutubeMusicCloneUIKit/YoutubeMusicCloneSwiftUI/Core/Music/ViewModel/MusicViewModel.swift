@@ -12,14 +12,19 @@ import FirebaseStorage
 class MusicViewModel: ObservableObject {
     
     // MARK: - Properties
+    private let dataService = MusicService.shared
+    @Published var musics : [MusicModel] = []
     @Published var selectedMusic: MusicModel?
     @Published var headerCategories: [String] = []
     
     init(){
         headerCategories = fetchCategories()
+        fetchData()
     }
     // MARK: - API
-    
+    private func fetchData(){
+        musics = dataService.musics
+    }
     func downloadImage(music: MusicModel,completion: @escaping(_ image: UIImage) -> ()) {
         let ref = Storage.storage().reference(withPath: "\(FirebaseFileType.musicImage.folderName)\(music.imageUrl)")
         

@@ -68,6 +68,7 @@ extension PlayMusicView {
         .foregroundColor(.white)
         .opacity(!isExpanded ? 0 : 1)
         .scaleEffect(!isExpanded ? 0 : 1)
+        .padding(.top, isExpanded ? 29 : 0)
     }
     private var musicImageView: some View {
         layout{
@@ -82,7 +83,9 @@ extension PlayMusicView {
                         isExpanded.toggle()
                     }
                 }
-            
+                .toolbar(isExpanded ? .hidden : .visible, for: .tabBar)
+
+
             HStack{
                 Image(systemName: "hand.thumbsdown")
                     .resizable()
@@ -94,8 +97,8 @@ extension PlayMusicView {
                 if isExpanded{ Spacer() }
                 VStack(alignment: isExpanded ? .center : .leading, spacing: isExpanded ? 7 : 2){
                     Text("SwiftUI")
-                        .font(.system(size: isExpanded ? 38 : 29))
-                        .fontWeight(isExpanded ? .heavy : .bold)
+                        .font(.system(size: isExpanded ? 38 : 24))
+                        .fontWeight(isExpanded ? .heavy : .semibold)
                         .foregroundColor(.white)
                     Text("Baris Ozgen")
                         .font(.system(size: 19))
@@ -133,6 +136,7 @@ extension PlayMusicView {
             }
             .padding(.top, isExpanded ? 29 : 0)
         }
+        .padding(.top, isExpanded ? 0 : -14)
     }
     private var musicSlider: some View {
         VStack{

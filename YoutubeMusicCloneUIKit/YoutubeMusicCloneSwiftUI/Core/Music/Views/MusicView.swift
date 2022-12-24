@@ -38,7 +38,7 @@ struct MusicView: View {
             
             VStack{
                 Spacer()
-                PlayMusicView(selectedMusic: $selectedMusic, currentSecond: 0, isExpanded: $isExpanded)
+                PlayMusicView(selectedMusic: $selectedMusic, isExpanded: $isExpanded)
                     .padding(.bottom,7)
                     .environmentObject(viewModel)
             }

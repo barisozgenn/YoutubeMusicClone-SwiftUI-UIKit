@@ -6,7 +6,7 @@
 //
 
 import Firebase
-import UIKit
+import SwiftUI
 import FirebaseStorage
 
 class MusicViewModel: ObservableObject {
@@ -39,7 +39,6 @@ class MusicViewModel: ObservableObject {
              completion(uiImage)
         }
     }
-    
    private func fetchCategories() -> [String] {
         return ["relax","energize","focus","workout","commute","baris","ozgen"]
     }

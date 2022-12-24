@@ -21,7 +21,7 @@ extension RectMusicCellView{
         VStack(alignment:.leading){
             Image(uiImage: musicImage)
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
                 .frame(width: 120, height: 120)
                 .cornerRadius(7)
             Text(music.title)

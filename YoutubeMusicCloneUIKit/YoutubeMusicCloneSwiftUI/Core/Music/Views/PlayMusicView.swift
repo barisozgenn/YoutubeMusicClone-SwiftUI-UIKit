@@ -10,8 +10,8 @@ import SwiftUI
 struct PlayMusicView: View {
     @EnvironmentObject private var viewModel : MusicViewModel
     @Binding var selectedMusic : MusicModel?
-    @State var currentSecond = 0.0
-    @State private var totalSecond = 0.0
+    @State private var currentSecond = 0.0
+    @State private var totalSecond = 29.0
     @Binding var isExpanded : Bool
     private let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     @State private var isMusicPlaying = false
@@ -31,6 +31,7 @@ struct PlayMusicView: View {
             .padding(.horizontal)
         }
         .frame(maxHeight: isExpanded ? .infinity : 77)
+        .preferredColorScheme(.dark)
     }
 }
 extension PlayMusicView {
@@ -69,14 +70,15 @@ extension PlayMusicView {
         .foregroundColor(.white)
         .opacity(!isExpanded ? 0 : 1)
         .scaleEffect(!isExpanded ? 0 : 1)
-        .padding(.top, isExpanded ? 29 : 0)
+        .padding(.top, isExpanded ? 40 : 0)
     }
     private var musicImageView: some View {
         layout{
             Image(uiImage: musicImage)
                 .resizable()
-                .scaledToFit()
-                .frame(maxWidth: !isExpanded ? 64 : .infinity)
+                .scaledToFill()
+                .frame(maxWidth: !isExpanded ? 64 : 360, maxHeight: !isExpanded ? 64 : 360)
+                .clipShape(Rectangle())
                 .cornerRadius(7)
                 .padding(.top, isExpanded ? 34 : 0)
                 .onTapGesture {
@@ -85,14 +87,21 @@ extension PlayMusicView {
                     }
                 }
                 .toolbar(isExpanded ? .hidden : .visible, for: .tabBar)
-
-
+                .onChange(of: selectedMusic?.id ?? "", perform: { _ in
+                    if let selectedMusic = selectedMusic {
+                        viewModel.downloadImage(music: selectedMusic) { image in
+                            withAnimation(.spring()){
+                                musicImage = image
+                            }
+                        }
+                    }
+                })
             HStack{
                 Image(systemName: "hand.thumbsdown")
                     .resizable()
                     .scaledToFit()
                     .frame(width: isExpanded ? 27 : 0, height: isExpanded ? 27 : 0)
-                    .foregroundColor(Color(.systemGray2))
+                    .foregroundColor(.white.opacity(0.92))
                     .opacity(!isExpanded ? 0 : 1)
                     .scaleEffect(!isExpanded ? 0 : 1)
                 if isExpanded{ Spacer() }
@@ -105,14 +114,14 @@ extension PlayMusicView {
                     Text(selectedMusic?.artist ?? "Baris Ozgen")
                         .font(.system(size: 19))
                         .fontWeight(.regular)
-                        .foregroundColor(Color(.systemGray2))
+                        .foregroundColor(.white.opacity(0.92))
                 }
                 Spacer()
                 Image(systemName: "hand.thumbsup")
                     .resizable()
                     .scaledToFit()
                     .frame(width: isExpanded ? 27 : 0, height: isExpanded ? 27 : 0)
-                    .foregroundColor(Color(.systemGray2))
+                    .foregroundColor(.white.opacity(0.92))
                     .opacity(!isExpanded ? 0 : 1)
                     .scaleEffect(!isExpanded ? 0 : 1)
                 
@@ -139,6 +148,7 @@ extension PlayMusicView {
             .padding(.top, isExpanded ? 29 : 0)
         }
         .padding(.top, isExpanded ? 0 : -14)
+        
     }
     private var musicSlider: some View {
         VStack{
@@ -151,7 +161,7 @@ extension PlayMusicView {
             .scaleEffect(isExpanded ? 1 : 0)
             .font(.system(size: 16))
             .fontWeight(.semibold)
-            .foregroundColor(Color(.systemGray2))
+            .foregroundColor(.white.opacity(0.92))
         }
         .padding(.top, isExpanded ? 14 : -14)
         .padding(.horizontal, isExpanded ? 0 : -29)
@@ -193,7 +203,7 @@ extension PlayMusicView {
                     .scaledToFit()
                     .frame(height: 22)
             }
-            .foregroundColor(Color(.systemGray5))
+            .foregroundColor(.white.opacity(0.92))
         }
         .padding(.top,14)
         .opacity(!isExpanded ? 0 : 1)
@@ -223,9 +233,8 @@ extension PlayMusicView {
         .onChange(of: selectedMusic?.id ?? "") { newSelectedMusicId in
             guard let selectedMusic = self.selectedMusic else {return}
             withAnimation(.spring()){
-                currentSecond = 0
-                totalSecond = Double(selectedMusic.durationInSeconds)
                 isExpanded.toggle()
+                totalSecond = Double(selectedMusic.durationInSeconds)
             }
             
         }
@@ -247,7 +256,7 @@ extension PlayMusicView {
 }
 struct PlayMusicView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayMusicView(selectedMusic: .constant(nil), isExpanded: .constant(false))
+        PlayMusicView(selectedMusic: .constant(nil), isExpanded: .constant(true))
             .environmentObject(MusicViewModel())
     }
 }

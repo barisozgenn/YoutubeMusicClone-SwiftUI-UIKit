@@ -84,6 +84,7 @@
 		AF4ECC54292CB77800F70024 /* MusicHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC53292CB77800F70024 /* MusicHeader.swift */; };
 		AF4ECC56292D10F900F70024 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC55292D10F900F70024 /* MusicModel.swift */; };
 		AF4ECC5B292D398C00F70024 /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC5A292D398C00F70024 /* MusicService.swift */; };
+		AF9F56E22957932200943C17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF4ECC37292A368300F70024 /* GoogleService-Info.plist */; };
 		AFC5818F2955BD6D0054618E /* PlayMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC5818E2955BD6D0054618E /* PlayMusicView.swift */; };
 		AFC581912955D92D0054618E /* SwiftUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC581902955D92D0054618E /* SwiftUISlider.swift */; };
 		AFC58193295642700054618E /* WideMusicCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC58192295642700054618E /* WideMusicCellView.swift */; };
@@ -632,6 +633,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF0DF1DD2951B95B005BFFBB /* Assets.xcassets in Resources */,
+				AF9F56E22957932200943C17 /* GoogleService-Info.plist in Resources */,
 				AF0DF1D72951B8FD005BFFBB /* Preview Assets.xcassets in Resources */,
 				AFCE89902954498E006AA8EC /* musics.json in Resources */,
 			);

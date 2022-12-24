@@ -21,7 +21,7 @@ extension WideMusicCellView{
         HStack{
             Image(uiImage: musicImage)
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
                 .frame(width: 64, height: 64)
                 .cornerRadius(7)
             

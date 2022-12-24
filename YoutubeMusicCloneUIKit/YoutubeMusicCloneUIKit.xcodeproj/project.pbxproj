@@ -68,7 +68,6 @@
 		AF4ECC32292A349000F70024 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = AF4ECC31292A349000F70024 /* FirebaseDatabase */; };
 		AF4ECC34292A349000F70024 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AF4ECC33292A349000F70024 /* FirebaseFirestore */; };
 		AF4ECC36292A349000F70024 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = AF4ECC35292A349000F70024 /* FirebaseStorage */; };
-		AF4ECC38292A368300F70024 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF4ECC37292A368300F70024 /* GoogleService-Info.plist */; };
 		AF4ECC3A292A39E600F70024 /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC39292A39E600F70024 /* ImageUploadService.swift */; };
 		AF4ECC3C292A3A0000F70024 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC3B292A3A0000F70024 /* AuthService.swift */; };
 		AF4ECC3E292A3A9A00F70024 /* FirebaseFileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC3D292A3A9A00F70024 /* FirebaseFileType.swift */; };
@@ -84,7 +83,6 @@
 		AF4ECC54292CB77800F70024 /* MusicHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC53292CB77800F70024 /* MusicHeader.swift */; };
 		AF4ECC56292D10F900F70024 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC55292D10F900F70024 /* MusicModel.swift */; };
 		AF4ECC5B292D398C00F70024 /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4ECC5A292D398C00F70024 /* MusicService.swift */; };
-		AF9F56E22957932200943C17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF4ECC37292A368300F70024 /* GoogleService-Info.plist */; };
 		AFC5818F2955BD6D0054618E /* PlayMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC5818E2955BD6D0054618E /* PlayMusicView.swift */; };
 		AFC581912955D92D0054618E /* SwiftUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC581902955D92D0054618E /* SwiftUISlider.swift */; };
 		AFC58193295642700054618E /* WideMusicCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC58192295642700054618E /* WideMusicCellView.swift */; };
@@ -143,7 +141,6 @@
 		AF4ECC27292A1DE600F70024 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		AF4ECC2A292A261200F70024 /* AuthenticationViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModelProtocol.swift; sourceTree = "<group>"; };
 		AF4ECC2C292A279500F70024 /* FormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModelProtocol.swift; sourceTree = "<group>"; };
-		AF4ECC37292A368300F70024 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF4ECC39292A39E600F70024 /* ImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
 		AF4ECC3B292A3A0000F70024 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		AF4ECC3D292A3A9A00F70024 /* FirebaseFileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFileType.swift; sourceTree = "<group>"; };
@@ -236,7 +233,6 @@
 			isa = PBXGroup;
 			children = (
 				AF341EED292D4B5D00C92A2B /* musics.json */,
-				AF4ECC37292A368300F70024 /* GoogleService-Info.plist */,
 				AF4ECBEB29278E4C00F70024 /* Assets.xcassets */,
 			);
 			path = Sources;
@@ -633,7 +629,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF0DF1DD2951B95B005BFFBB /* Assets.xcassets in Resources */,
-				AF9F56E22957932200943C17 /* GoogleService-Info.plist in Resources */,
 				AF0DF1D72951B8FD005BFFBB /* Preview Assets.xcassets in Resources */,
 				AFCE89902954498E006AA8EC /* musics.json in Resources */,
 			);
@@ -645,7 +640,6 @@
 			files = (
 				AF4ECBEF29278E4C00F70024 /* LaunchScreen.storyboard in Resources */,
 				AF4ECBEC29278E4C00F70024 /* Assets.xcassets in Resources */,
-				AF4ECC38292A368300F70024 /* GoogleService-Info.plist in Resources */,
 				AF341EEE292D4B5D00C92A2B /* musics.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

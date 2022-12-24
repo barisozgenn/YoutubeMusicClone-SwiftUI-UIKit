@@ -11,7 +11,7 @@ struct PlayMusicView: View {
     @EnvironmentObject private var viewModel : MusicViewModel
     @Binding var selectedMusic : MusicModel?
     @State private var currentSecond = 0.0
-    @State private var totalSecond = 29.0
+    @State private var totalSecond = 292.0
     @Binding var isExpanded : Bool
     private let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     @State private var isMusicPlaying = false

@@ -41,6 +41,7 @@ struct MusicView: View {
                 PlayMusicView(selectedMusic: $selectedMusic, isExpanded: $isExpanded)
                     .padding(.bottom,7)
                     .environmentObject(viewModel)
+                    .opacity(selectedMusic == nil ? 0 : 1)
             }
             .ignoresSafeArea()
         }
@@ -115,7 +116,7 @@ extension MusicView {
         GeometryReader { prox in
             ScrollView(.horizontal,showsIndicators: false){
                 LazyHGrid(rows: rows, spacing: 0) {
-                    ForEach(viewModel.musics) { item in
+                    ForEach(viewModel.musics.sorted(by: {$0.durationInSeconds > $1.durationInSeconds})) { item in
                         WideMusicCellView(selectedMusic: $selectedMusic, music: item)
                             .frame(width: prox.size.width - 58)
                             .padding(.leading, 14)
@@ -157,7 +158,7 @@ extension MusicView {
         GeometryReader { prox in
             ScrollView(.horizontal,showsIndicators: false){
                 LazyHGrid(rows: rowsRect, spacing: 0) {
-                    ForEach(viewModel.musics) { item in
+                    ForEach(viewModel.musics.sorted(by: {$0.durationInSeconds < $1.durationInSeconds})) { item in
                         RectMusicCellView(selectedMusic: $selectedMusic, music: item)
                             .frame(width: 140)
                             .padding(.leading, -7)

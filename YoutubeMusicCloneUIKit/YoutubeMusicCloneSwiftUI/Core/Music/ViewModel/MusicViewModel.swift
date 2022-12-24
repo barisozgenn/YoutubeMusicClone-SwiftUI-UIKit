@@ -31,7 +31,10 @@ class MusicViewModel: ObservableObject {
         ref.getData(maxSize: 1 * 1024 * 1024) { data, _ in
             
             guard let data = data,
-                  let uiImage = UIImage(data: data) else {return}
+                  let uiImage = UIImage(data: data) else {
+                completion(UIImage(named: "youtube-music-app-clone-logo")!)
+                return
+            }
             
              completion(uiImage)
         }

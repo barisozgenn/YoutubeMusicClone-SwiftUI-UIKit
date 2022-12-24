@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct RectMusicCellView: View {
-    @Binding var selectedMusic: MusicModel
+    @Binding var selectedMusic: MusicModel?
     @EnvironmentObject private var viewModel : MusicViewModel
     let music : MusicModel
-    
+    @State private var musicImage: UIImage = UIImage(named: "youtube-music-app-clone-logo")!
     var body: some View {
         cellView
     }
@@ -19,22 +19,29 @@ struct RectMusicCellView: View {
 extension RectMusicCellView{
     private var cellView: some View {
         VStack(alignment:.leading){
-            Image("youtube-music-app-clone-logo")
+            Image(uiImage: musicImage)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 120, height: 120)
                 .cornerRadius(7)
-                .onTapGesture {
-                    withAnimation(.spring()){
-                        
-                    }
-                }
             Text(music.title)
                 .font(.system(size: 20))
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
                 .frame(width: 120, height: 20,alignment: .leading)
                 .lineLimit(1)
+        }
+        .onTapGesture {
+            withAnimation(.spring()){
+                selectedMusic = music
+            }
+        }
+        .onAppear{
+            viewModel.downloadImage(music: music) { image in
+                withAnimation(.spring()){
+                    musicImage = image
+                }
+            }
         }
     }
 }

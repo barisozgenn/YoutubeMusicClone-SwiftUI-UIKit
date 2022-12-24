@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct PlayMusicView: View {
+    @EnvironmentObject private var viewModel : MusicViewModel
+    @Binding var selectedMusic : MusicModel?
     @State var currentSecond = 0.0
-    @State private var totalSecond = 129.0
-    @State private var isExpanded = false
+    @State private var totalSecond = 0.0
+    @Binding var isExpanded : Bool
     private let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     @State private var isMusicPlaying = false
-    
+    @State private var musicImage: UIImage = UIImage(named: "youtube-music-app-clone-logo")!
     var body: some View {
         ZStack{
             backgroundGradient
@@ -28,15 +30,14 @@ struct PlayMusicView: View {
             .padding()
             .padding(.horizontal)
         }
-        .frame(height: isExpanded ? .infinity : 77)
+        .frame(maxHeight: isExpanded ? .infinity : 77)
     }
 }
 extension PlayMusicView {
     private var backgroundGradient: some View{
         ZStack{
-            Image("profile-photo")
+            Image(uiImage: musicImage)
                 .resizable()
-                .frame(width: .infinity)
                 .blur(radius: 34)
                 .opacity(!isExpanded ? 0 : 0.5)
         }
@@ -72,10 +73,10 @@ extension PlayMusicView {
     }
     private var musicImageView: some View {
         layout{
-            Image("profile-photo")
+            Image(uiImage: musicImage)
                 .resizable()
                 .scaledToFit()
-                .frame(width: !isExpanded ? 64 : .infinity)
+                .frame(maxWidth: !isExpanded ? 64 : .infinity)
                 .cornerRadius(7)
                 .padding(.top, isExpanded ? 34 : 0)
                 .onTapGesture {
@@ -96,11 +97,12 @@ extension PlayMusicView {
                     .scaleEffect(!isExpanded ? 0 : 1)
                 if isExpanded{ Spacer() }
                 VStack(alignment: isExpanded ? .center : .leading, spacing: isExpanded ? 7 : 2){
-                    Text("SwiftUI")
+                    Text(selectedMusic?.title ?? "title")
                         .font(.system(size: isExpanded ? 38 : 24))
                         .fontWeight(isExpanded ? .heavy : .semibold)
                         .foregroundColor(.white)
-                    Text("Baris Ozgen")
+                        .lineLimit(1)
+                    Text(selectedMusic?.artist ?? "Baris Ozgen")
                         .font(.system(size: 19))
                         .fontWeight(.regular)
                         .foregroundColor(Color(.systemGray2))
@@ -218,6 +220,15 @@ extension PlayMusicView {
         .onReceive(timer) { _ in
                 currentSecond += isMusicPlaying ? 1 : 0
         }
+        .onChange(of: selectedMusic?.id ?? "") { newSelectedMusicId in
+            guard let selectedMusic = self.selectedMusic else {return}
+            withAnimation(.spring()){
+                currentSecond = 0
+                totalSecond = Double(selectedMusic.durationInSeconds)
+                isExpanded.toggle()
+            }
+            
+        }
     }
     
     func setDurationInSecond(second:Double) -> String{
@@ -236,6 +247,7 @@ extension PlayMusicView {
 }
 struct PlayMusicView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayMusicView()
+        PlayMusicView(selectedMusic: .constant(nil), isExpanded: .constant(false))
+            .environmentObject(MusicViewModel())
     }
 }

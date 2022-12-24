@@ -9,12 +9,8 @@ import SwiftUI
 
 struct MusicView: View {
     @StateObject var viewModel = MusicViewModel()
-    @State private var selectedMusic : MusicModel
-    
-    init() {
-        selectedMusic = self.viewModel.musics.first!
-    }
-    
+    @State var selectedMusic : MusicModel? = nil
+    @State private var isExpanded = false
     let rows = [
         GridItem(.fixed(65)),
         GridItem(.fixed(65)),
@@ -42,8 +38,9 @@ struct MusicView: View {
             
             VStack{
                 Spacer()
-                PlayMusicView(currentSecond: 0)
+                PlayMusicView(selectedMusic: $selectedMusic, currentSecond: 0, isExpanded: $isExpanded)
                     .padding(.bottom,7)
+                    .environmentObject(viewModel)
             }
             .ignoresSafeArea()
         }
@@ -122,6 +119,7 @@ extension MusicView {
                         WideMusicCellView(selectedMusic: $selectedMusic, music: item)
                             .frame(width: prox.size.width - 58)
                             .padding(.leading, 14)
+                            .environmentObject(viewModel)
                     }
                 }
             }
@@ -163,6 +161,7 @@ extension MusicView {
                         RectMusicCellView(selectedMusic: $selectedMusic, music: item)
                             .frame(width: 140)
                             .padding(.leading, -7)
+                            .environmentObject(viewModel)
                     }
                 }
             }

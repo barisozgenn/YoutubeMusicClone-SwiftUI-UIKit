@@ -5,11 +5,10 @@ SwiftUI & UIKit - YouTube Music Clone - iOS 16 MVVM, Firebase Store, Bottom Shee
 
 
 ## YouTube Video
-
-YouTubeLink
-- Link will be added here
+<a href="https://youtu.be/VovEBM3ac-Y" target="_blank">
+YouTubeLink: https://youtu.be/VovEBM3ac-Y
 <img src="https://repository-images.githubusercontent.com/567665729/5ac3daaf-b73d-44e5-a143-8edd2c629f1e" width="729" title="YoutubeMusicClone-SwiftUI-UIKit-barisozgen"/>
-
+</a>
 
 ## Features
 

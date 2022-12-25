@@ -1,6 +1,6 @@
 
 # YoutubeMusicClone-SwiftUI-UIKit
-2 versions of targets are prepared (SwifUI & UIKit)</br>
+2 versions of targets are prepared (SwiftUI & UIKit)</br>
 SwiftUI & UIKit - YouTube Music Clone - iOS 16 MVVM, Firebase Store, Bottom Sheet, Sheet Animations
 
 

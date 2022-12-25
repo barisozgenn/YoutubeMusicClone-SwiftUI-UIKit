@@ -22,10 +22,20 @@ YouTubeLink
   
 ## Distribution
 
+Clone
+
+```bash
+git clone https://github.com/barisozgenn/YoutubeMusicClone-SwiftUI-UIKit
+```
 GitHub CLI
 
 ```bash
 gh repo clone barisozgenn/YoutubeMusicClone-SwiftUI-UIKit
 ```
 
+## For More Animations
+
+Discover more bottom sheet and geometry animations
+
+[BowlShopSwiftUI](https://github.com/barisozgenn/BowlShopSwiftUI)
   
